@@ -37,19 +37,20 @@ function draw() {
   text("[egg]",400,150);
   
   text("this sim was made by dphdmn, puzzle by timo",400,750);
-    for (let i = 0; i < size*size; i++) {
-      
-        this.drawTile(numbers[i],linToX(i),linToY(i));
-      
-    }  
+  for (let i = -1 ; i <= size; ++i){
+	  for (let j = -1 ; j <= size; ++j){
+		drawTile(numbers[XYtolin(i,j)],i,j);
+	  }
+  }
   textSize(15);
   text("clicking the tile swaps the top-bottom tiles and the left-right tiles. It wraps around when clicking on a border tile.",400,700);
   
 }
 let numbers = [];
 function newGame(){
-  tileSize=400/(size);
+  tileSize=400/(size + 2);
   cornersConst=tileSize/5;
+  zero = 400 - tileSize * size / 2;
   numbers.length=0;
   numbers = [];
   for (let i = 0; i<size*size;i++){
@@ -64,7 +65,10 @@ cornersConst=tileSize/10;
 //draw tile with number num, position x, y, where x and y are 0..N-1 positions, not the exact coordinats
  function drawTile(num, x, y){
     
-    fill(100,200,200);
+	let alpha = 100;
+	if (x < 0 || y < 0 || x >= size || y >= size)
+	alpha = 50;
+    fill(100,200,200, alpha);
     
     let exactX = zero + tileSize*x;
     let exactY = zero + tileSize*y;
