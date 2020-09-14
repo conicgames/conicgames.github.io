@@ -52,10 +52,10 @@ function newGame(){
   cornersConst=tileSize/5;
   numbers.length=0;
   numbers = [];
-  for (let i = 1; i<=size*size;i++){
-    numbers.push(i);
+  for (let i = 0; i<size*size;i++){
+    numbers.push(i+1);
   }
-  numbers = shuffleNumbers(numbers);
+  shuffleNumbers();
   
 }
 tileSize=size*25;
@@ -70,7 +70,6 @@ cornersConst=tileSize/10;
     let exactY = zero + tileSize*y;
    
     rect(exactX,exactY,tileSize,tileSize, cornersConst);
-   // image(img, exactX,exactY,tileSize,tileSize);
     textSize(tileSize/4);
     fill(0,0,0); 
     text(num, exactX+tileSize/2, exactY+tileSize/2);
@@ -81,7 +80,7 @@ if (key == ' '){
 newGame();
 }
   if (key >= 2 && key <= 9){
-    size = key;
+    size = parseInt(key);
     newGame();
   }
 }
@@ -119,16 +118,15 @@ function inRect(x,y, rx, ry, w, h){
 }
 
 function mousePressed(){
-checkClick();
+	checkClick();
 }
 
-function shuffleNumbers(array) {
-  let tmp, current, top = array.length;
+function shuffleNumbers() {
+  let top = numbers.length;
   if(top) while(--top) {
-    current = int(Math.floor(Math.random() * top));
+    let current = int(Math.floor(Math.random() * top));
     doSwap(linToX(current), linToY(current))
   }
-  return array;
 }
 
 function XYtolin(X, Y)
