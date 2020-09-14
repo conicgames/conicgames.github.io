@@ -33,12 +33,11 @@ function draw() {
     textAlign(CENTER,CENTER);
     textSize(30); 
     textStyle(NORMAL);
+	fill(0,0,0); 
   text("space to reset, 2-9 to change size, click to play",400,100);
-  text("[egg]",400,150);
-  
-  text("this sim was made by dphdmn, puzzle by timo",400,750);
-  for (let i = -1 ; i <= size; ++i){
-	  for (let j = -1 ; j <= size; ++j){
+  text("Based on dphdmn's implementation",400,750);
+  for (let i = 0 ; i < size; ++i){
+	  for (let j = 0 ; j < size; ++j){
 		drawTile(numbers[XYtolin(i,j)],i,j);
 	  }
   }
@@ -48,7 +47,7 @@ function draw() {
 }
 let numbers = [];
 function newGame(){
-  tileSize=400/(size + 2);
+  tileSize=400/size;
   cornersConst=tileSize/5;
   zero = 400 - tileSize * size / 2;
   numbers.length=0;
@@ -65,17 +64,18 @@ cornersConst=tileSize/10;
 //draw tile with number num, position x, y, where x and y are 0..N-1 positions, not the exact coordinats
  function drawTile(num, x, y){
     
-	let alpha = 100;
+	let alpha = 255;
 	if (x < 0 || y < 0 || x >= size || y >= size)
 	alpha = 50;
-    fill(100,200,200, alpha);
+	intensity = 25 + 128 * num / (size*size)
+    fill(intensity,intensity,intensity, alpha);
     
     let exactX = zero + tileSize*x;
     let exactY = zero + tileSize*y;
    
     rect(exactX,exactY,tileSize,tileSize, cornersConst);
     textSize(tileSize/4);
-    fill(0,0,0); 
+    fill(255,255,255); 
     text(num, exactX+tileSize/2, exactY+tileSize/2);
   }
 
