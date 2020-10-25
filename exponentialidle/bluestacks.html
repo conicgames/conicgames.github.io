@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8"/>
+</head>
+
+<body>
+<textarea id="save" onchange="onSavePasted()">
+Paste your save here
+</textarea>
+
+<span id="buttons" height="50"></span>
+
+<script>
+function onSavePasted()
+{
+    let buttons = document.getElementById("buttons");
+    buttons.innerHTML  = "";
+    
+    let saveElement = document.getElementById("save");
+    let save = saveElement.value;
+    
+    for (var i = 0; i <= save.length / 3000; ++i)
+    {
+        let index = i;
+        let button = document.createElement("button");
+        button.innerHTML = "Copy Part " + i.toString();
+        button.onclick = _ => 
+        {
+            let el = document.createElement('textarea');
+            el.value = save.substring(index*3000, (index+1)*3000);
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand("copy");
+            document.body.removeChild(el);
+        }
+        buttons.appendChild(button);
+    }
+}
+</script>
+
+</body>
+</html>
