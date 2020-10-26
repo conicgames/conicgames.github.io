@@ -76,7 +76,7 @@
 <body>
 <h1 class="headers header1">Exponential Idle</h1>
 <h1 class="headers header2">Bluestacks Import Tool</h1>
-<p>Bluestacks has some limitations regarding clipboard size. To avoid it, we developped a tool that let you paste a save and copy it part by part. Paste your save in the text area below. After pasting, buttons will appear. Click on the first button, then paste it in the import text field in Exponential Idle. Repeat this step until you pasted all parts.</p>
+<p>Bluestacks has some limitations regarding clipboard size. To avoid it, we developped a tool that lets you paste a save and copy it part by part. Paste your save in the text area below. After pasting, buttons will appear. Click on the first button, then paste it in the import text field in Exponential Idle. Repeat this step until you pasted all parts.</p>
 <textarea id="save" rows="10" oninput="onSavePasted()" placeholder="Paste your save here"></textarea>
 
 <div id="buttons" height="50"></div>
@@ -95,7 +95,7 @@ function onSavePasted()
     {
         let index = i;
         let button = document.createElement("button");
-        button.innerHTML = "Copy Part " + i.toString();
+        button.innerHTML = "Copy Part " + (i+1).toString();
         button.onclick = _ => 
         {
             let el = document.createElement('textarea');
@@ -104,7 +104,7 @@ function onSavePasted()
             el.select();
             document.execCommand("copy");
             document.body.removeChild(el);
-            button.innerHTML = "Copy Part " + i.toString() + " - Copied!";
+            button.innerHTML = "Copy Part " + (i+1).toString() + " - Copied!";
         }
         buttons.appendChild(button);
     }
