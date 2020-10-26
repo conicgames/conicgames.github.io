@@ -92,7 +92,7 @@ function onSavePasted()
     let saveElement = document.getElementById("save");
     let save = saveElement.value;
     let limit = 2000;
-    let partCount = Math.trunc(save.length / limit) + 1;
+    let partCount = Math.floor((save.length - 1) / limit) + 1;
     function getButtonLabel(index){ return "Copy Part " + (index+1).toString() + "/" + partCount.toString(); }
     
     for (let i = 0; i < partCount; ++i)
