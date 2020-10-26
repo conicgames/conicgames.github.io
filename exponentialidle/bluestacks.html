@@ -91,26 +91,37 @@ function onSavePasted()
     
     let saveElement = document.getElementById("save");
     let save = saveElement.value;
-    let limit = 2000;
-    let partCount = Math.floor((save.length - 1) / limit) + 1;
-    function getButtonLabel(index){ return "Copy Part " + (index+1).toString() + "/" + partCount.toString(); }
     
-    for (let i = 0; i < partCount; ++i)
+    try
     {
-        let index = i;
-        let button = document.createElement("button");
-        button.innerHTML = getButtonLabel(i);
-        button.onclick = _ => 
+        window.atob(save); // Check if valid base64
+        let limit = 2000;
+        let partCount = Math.floor((save.length - 1) / limit) + 1;
+        function getButtonLabel(index){ return "Copy Part " + (index+1).toString() + "/" + partCount.toString(); }
+        
+        for (let i = 0; i < partCount; ++i)
         {
-            let el = document.createElement('textarea');
-            el.value = save.substring(index * limit, (index + 1) * limit);
-            document.body.appendChild(el);
-            el.select();
-            document.execCommand("copy");
-            document.body.removeChild(el);
-            button.innerHTML = getButtonLabel(index) + " - Copied!";
+            let index = i;
+            let button = document.createElement("button");
+            button.innerHTML = getButtonLabel(i);
+            button.onclick = _ => 
+            {
+                let el = document.createElement('textarea');
+                el.value = save.substring(index * limit, (index + 1) * limit);
+                document.body.appendChild(el);
+                el.select();
+                document.execCommand("copy");
+                document.body.removeChild(el);
+                button.innerHTML = getButtonLabel(index) + " - Copied!";
+            }
+            buttons.appendChild(button);
         }
-        buttons.appendChild(button);
+    }
+    catch(e)
+    {
+        let error = document.createElement("p");
+        error.innerHTML = "The pasted text does not appear to be a valid save.";
+        buttons.appendChild(error);
     }
 }
 </script>
