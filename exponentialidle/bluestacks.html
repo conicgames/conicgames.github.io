@@ -3,14 +3,85 @@
 
 <head>
 <meta charset="utf-8"/>
+<style>
+    @font-face {
+        font-family: roboto-bold;
+        src: url(Roboto-Bold.ttf);
+    }
+    @font-face {
+        font-family: roboto-regular;
+        src: url(Roboto-Regular.ttf);
+    }
+    body {
+        background-color: #2F2F2F;
+    }
+    .headers {
+        color: #ccc;
+        text-align: center;
+        margin: 0;
+    }
+    .header1 {
+        font-size: 48px;
+        font-family: roboto-bold, Verdana, Geneva, sans-serif;
+        margin-top: 50px;
+        margin-bottom: 10px;
+    }
+    .header2 {
+        font-size: 22px;
+        font-family: roboto-regular, Verdana, Geneva, sans-serif;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    p {
+        color: #ccc;
+        font-family: roboto-regular, Verdana, Geneva, sans-serif;
+        font-size: 16px;
+        margin: auto;
+        margin-bottom: 20px;
+        width: 50%;
+    }
+    textarea {
+        background-color: #444;
+        color: #ccc;
+        display: block;
+        margin: auto;
+        margin-bottom: 10px;
+        width: 50%;
+        resize: none;
+        font-family: roboto-regular, Verdana, Geneva, sans-serif;
+    }
+    #buttons {
+        display: block;
+        margin: auto;
+        width: 50%;
+    }
+    button {
+        display: block;
+        width: 50%;
+        margin: auto;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        background-color: #333;
+        border: 1px solid #ccc;
+        color: #ccc;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+    }
+</style>
 </head>
 
 <body>
-<textarea id="save" onchange="onSavePasted()">
+<h1 class="headers header1">Exponential Idle</h1>
+<h1 class="headers header2">Bluestacks Import Tool</h1>
+<p>Bluestacks has some limitations regarding clipboard size. To avoid it, we developped a tool that let you paste a save and copy it part by part. Paste your save in the text area below. After pasting, buttons will appear. Click on the first button, then paste it in the import text field in Exponential Idle. Repeat this step until your pasted all parts of the save.</p>
+<textarea id="save" rows="10" oninput="onSavePasted()">
 Paste your save here
 </textarea>
 
-<span id="buttons" height="50"></span>
+<div id="buttons" height="50"></div>
 
 <script>
 function onSavePasted()
@@ -20,8 +91,9 @@ function onSavePasted()
     
     let saveElement = document.getElementById("save");
     let save = saveElement.value;
+    let limit = 2000;
     
-    for (var i = 0; i <= save.length / 3000; ++i)
+    for (let i = 0; i <= save.length / limit; ++i)
     {
         let index = i;
         let button = document.createElement("button");
@@ -29,11 +101,12 @@ function onSavePasted()
         button.onclick = _ => 
         {
             let el = document.createElement('textarea');
-            el.value = save.substring(index*3000, (index+1)*3000);
+            el.value = save.substring(index * limit, (index + 1) * limit);
             document.body.appendChild(el);
             el.select();
             document.execCommand("copy");
             document.body.removeChild(el);
+            button.innerHTML = "Copy Part " + i.toString() + " - Copied!";
         }
         buttons.appendChild(button);
     }
