@@ -3,6 +3,7 @@
 
 <head>
 <meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
     @font-face {
         font-family: roboto-bold;
@@ -14,39 +15,53 @@
     }
     body {
         background-color: #2F2F2F;
+        width: 33%;
+        margin: auto;
+        font-size: 33vw;
     }
+    
+    @media screen and (max-width: 800px) {
+        body {
+            width: 100%;
+            margin: auto;
+            font-size: 100vw;
+        }
+    }
+    
     .headers {
         color: #ccc;
         text-align: center;
         margin: 0;
     }
     .header1 {
-        font-size: 48px;
+        font-size: 10%;
         font-family: roboto-bold, Verdana, Geneva, sans-serif;
-        margin-top: 50px;
-        margin-bottom: 10px;
+        margin-top: 3vh;
+        margin-bottom: 1vh;
     }
     .header2 {
         color: #888;
-        font-size: 22px;
+        font-size: 8%;
         font-family: roboto-regular, Verdana, Geneva, sans-serif;
-        margin-top: 10px;
-        margin-bottom: 40px;
+        margin-top: 1vh;
+        margin-bottom: 4vh;
     }
     .header3 {
         color: #888;
-        font-size: 18px;
+        font-size: 4.5%;
         font-family: roboto-regular, Verdana, Geneva, sans-serif;
-        margin-top: 20px;
-        margin-bottom: 5px;
+        margin-top: 4vh;
+        margin-bottom: 0.5vh;
     }
     p {
         color: #ccc;
         font-family: roboto-regular, Verdana, Geneva, sans-serif;
-        font-size: 16px;
+        font-size: 4%;
         margin: auto;
-        margin-bottom: 2px;
-        text-align: center;
+        margin-bottom: 1vh;
+        text-align: left;
+        padding-left: 2%;
+        text-indent: -2%;
     }
 </style>
 </head>
