@@ -1,481 +1,487 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-    @font-face {
-        font-family: roboto-bold;
-        src: url(Roboto-Bold.ttf);
-    }
-    @font-face {
-        font-family: roboto-regular;
-        src: url(Roboto-Regular.ttf);
-    }
-    body {
-        background-color: #2F2F2F;
-        width: 33%;
-        margin: auto;
-        font-size: 33vw;
-    }
-    
-    @media screen and (max-width: 800px) {
-        body {
-            width: 100%;
-            margin: auto;
-            font-size: 100vw;
-        }
-    }
-    
-    .headers {
-        color: #ccc;
-        text-align: center;
-        margin: 0;
-    }
-    .header1 {
-        font-size: 10%;
-        font-family: roboto-bold, Verdana, Geneva, sans-serif;
-        margin-top: 3vh;
-        margin-bottom: 1vh;
-    }
-    .header2 {
-        color: #888;
-        font-size: 8%;
-        font-family: roboto-regular, Verdana, Geneva, sans-serif;
-        margin-top: 1vh;
-        margin-bottom: 4vh;
-    }
-    .header3 {
-        color: #ccc;
-        font-size: 4.5%;
-        font-family: roboto-regular, Verdana, Geneva, sans-serif;
-        margin-top: 4vh;
-        margin-bottom: 0.5vh;
-    }
-    p {
-        color: #ccc;
-        font-family: roboto-regular, Verdana, Geneva, sans-serif;
-        font-size: 4%;
-        margin: auto;
-        margin-bottom: 1vh;
-        text-align: left;
-        padding-left: 2%;
-        text-indent: -2%;
-    }
-</style>
+    <title>Exponential Idle</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="icon" type="image/ico" href="favicon.ico">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </head>
 
 <body>
-<h1 class="headers header1">Exponential Idle</h1>
-<h1 class="headers header2">What's New</h1>
 
-<h2 class="headers header3">Version 1.3.89</h2>
-<p class="change">· Fixed: Auto-Prestige expression was sometimes displaying a exception message.</p>
+<div class="w3-top">
+  <div class="w3-bar color-medium w3-card">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="toggleMenu()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <img class="w3-bar-item" height="46" alt='' src='assets/logo.png'/>
+    <a href="index.html" class="w3-bar-item w3-button w3-padding-large text-bold">Exponential Idle</a>
+    <a href="index.html#screenshots" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Screenshots</a>
+    <a href="index.html#download" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Download</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hide-small">What's New</a>
+    <a href="privacypolicy.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Privacy Policy</a>
+    <a href="index.html#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Contact</a>
+  </div>
+</div>
 
-<h2 class="headers header3">Version 1.3.88</h2>
-<p class="change">· Added a 'smooth' function to use in Math Expressions.</p>
-<p class="change">· Improved handling of indefinite values in Math Expressions.</p>
-<p class="change">· The state of Math Expressions are now saved to improve correctness when reopening the game.</p>
-<p class="change">· Added an entry field to allow importing saves on Bluestacks.</p>
-<p class="change">· Improved overall performance and reduced flashes in purchasable item lists.</p>
-<p class="change">· Fixed: Some adjustments to the Dutch, Polish, and German translations.</p>
+<!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+<div id="navDemo" class="w3-bar-block color-light w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+  <a href="index.html#screenshots" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">Screenshots</a>
+  <a href="index.html#download" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">Download</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">What's New</a>
+  <a href="privacypolicy.html" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">Privacy Policy</a>
+  <a href="index.html#contact" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">Contact</a>
+</div>
 
-<h2 class="headers header3">Version 1.3.87</h2>
-<p class="change">· Added new languages: Dutch and Polish!</p>
-<p class="change">· Added a fast forward button for offline progress calculation which improves the calculation speed at cost of being less accurate.</p>
-<p class="change">· Added options for minigames: new controls, new color schemes, restart-on-claim, animation.</p>
-<p class="change">· Added a way to restart minigames without closing the window.</p>
-<p class="change">· Added 'ceiling' and 'floor' functions to math expressions.</p>
-<p class="change">· Fixed: In math expressions, division by a big number gave inconsistent results.</p>
-<p class="change">· Fixed: Hover Control wouldn't work on some device with a notch.</p>
+<div class="w3-content" style="max-width:2000px;margin-top:46px">
+<div class="w3-container w3-content w3-center w3-padding-16" style="max-width:600px">
+  <h1 class="text-color text-bold">What's New</h1>
+  
+  <h3 class="text-color-medium">Version 1.3.94</h3>
+  <p class="whatsnewPar text-color">· Fixed: The auto-prestige entry box was squashed in some occasions.</p>
+  
+  <h3 class="text-color-medium">Version 1.3.93</h3>
+  <p class="whatsnewPar text-color">· Fixed: Background sound was muted when starting the game. (iOS)</p>
+  <p class="whatsnewPar text-color">· Fixed: The 'smooth' function behavior was incorrect, especially during offline calculation.</p>
+  
+  <h3 class="text-color-medium">Version 1.3.92</h3>
+  <p class="whatsnewPar text-color">· Added leaderboards. (iOS)</p>
+  <p class="whatsnewPar text-color">· Fixed: The update notification did not send the player to the correct App Store URL. (iOS)</p>
+  
+  <h3 class="text-color-medium">Version 1.3.91</h3>
+  <p class="whatsnewPar text-color">· Fixed: Using the game in Chinese would prevent the game from opening properly.</p>
+  <p class="whatsnewPar text-color">· Fixed: The scale of the layout was too big on some tablets in landscape mode.</p>
 
-<h2 class="headers header3">Version 1.3.86</h2>
-<p class="change">· Added the current level of variables, upgrades, and bonuses.</p>
-<p class="change">· Added leaderboards for minigames (best times).</p>
-<p class="change">· Minigames won't generate configurations that are less than 3 moves.</p>
-<p class="change">· The math test expression is now saved.</p>
-<p class="change">· Improved formatting of small numbers in math test expression.</p>
-<p class="change">· Fixed: The 15-Puzzle hover control had a corner case when hovering outside the game area.</p>
-<p class="change">· Fixed: Potential crash when closing the torus puzzle while moving tiles.</p>
-<p class="change">· Fixed: Bad behaviors when testing expressions with negative numbers.</p>
+  <h3 class="text-color-medium">Version 1.3.90</h3>
+  <p class="whatsnewPar text-color">· Fixed: Music/sound options was not properly saved.</p>
+  <p class="whatsnewPar text-color">· Fixed: Layout for tablets was too big.</p>
+  <p class="whatsnewPar text-color">· Fixed: Widgets were not displayed properly on some devices.</p>
 
-<h2 class="headers header3">Version 1.3.83</h2>
-<p class="change">· Fixed: Taps in the 15-Puzzle were not correctly registered on some devices.</p>
+  <h3 class="text-color-medium">Version 1.3.89</h3>
+  <p class="whatsnewPar text-color">· Fixed: Auto-Prestige expression was sometimes displaying a exception message.</p>
 
-<h2 class="headers header3">Version 1.3.81</h2>
-<p class="change">· New hover control for the 15-Puzzle. Leave your finger on the screen and drag it around to make moves.</p>
-<p class="change">· Fixed: Variable power could be wrongly printed as very big numbers when it should instead be 0.</p>
-<p class="change">· Fixed: Potential crash when switching save slot with big progress difference.</p>
-<p class="change">· Fixed: Star bonus were sometimes not reset when changing save slots.</p>
+  <h3 class="text-color-medium">Version 1.3.88</h2>
+  <p class="whatsnewPar text-color">· Added a 'smooth' function to use in Math Expressions.</p>
+  <p class="whatsnewPar text-color">· Improved handling of indefinite values in Math Expressions.</p>
+  <p class="whatsnewPar text-color">· The state of Math Expressions are now saved to improve correctness when reopening the game.</p>
+  <p class="whatsnewPar text-color">· Added an entry field to allow importing saves on Bluestacks.</p>
+  <p class="whatsnewPar text-color">· Improved overall performance and reduced flashes in purchasable item lists.</p>
+  <p class="whatsnewPar text-color">· Fixed: Some adjustments to the Dutch, Polish, and German translations.</p>
 
-<h2 class="headers header3">Version 1.3.79</h2>
-<p class="change">· Fixed: The OS Font size affected the alignment of some labels.</p>
-<p class="change">· Fixed: The summary bar was jittery in some occasions.</p>
-<p class="change">· Fixed: Some spaces were missing in upgrade and bonus descriptions.</p>
+  <h3 class="text-color-medium">Version 1.3.87</h3>
+  <p class="whatsnewPar text-color">· Added new languages: Dutch and Polish!</p>
+  <p class="whatsnewPar text-color">· Added a fast forward button for offline progress calculation which improves the calculation speed at cost of being less accurate.</p>
+  <p class="whatsnewPar text-color">· Added options for minigames: new controls, new color schemes, restart-on-claim, animation.</p>
+  <p class="whatsnewPar text-color">· Added a way to restart minigames without closing the window.</p>
+  <p class="whatsnewPar text-color">· Added 'ceiling' and 'floor' functions to math expressions.</p>
+  <p class="whatsnewPar text-color">· Fixed: In math expressions, division by a big number gave inconsistent results.</p>
+  <p class="whatsnewPar text-color">· Fixed: Hover Control wouldn't work on some device with a notch.</p>
 
-<h2 class="headers header3">Version 1.3.78</h2>
-<p class="change">· Fixed: Game crashed at startup for many users. I'm very sorry for that.</p>
+  <h3 class="text-color-medium">Version 1.3.86</h3>
+  <p class="whatsnewPar text-color">· Added the current level of variables, upgrades, and bonuses.</p>
+  <p class="whatsnewPar text-color">· Added leaderboards for minigames (best times).</p>
+  <p class="whatsnewPar text-color">· Minigames won't generate configurations that are less than 3 moves.</p>
+  <p class="whatsnewPar text-color">· The math test expression is now saved.</p>
+  <p class="whatsnewPar text-color">· Improved formatting of small numbers in math test expression.</p>
+  <p class="whatsnewPar text-color">· Fixed: The 15-Puzzle hover control had a corner case when hovering outside the game area.</p>
+  <p class="whatsnewPar text-color">· Fixed: Potential crash when closing the torus puzzle while moving tiles.</p>
+  <p class="whatsnewPar text-color">· Fixed: Bad behaviors when testing expressions with negative numbers.</p>
 
-<h2 class="headers header3">Version 1.3.77</h2>
-<p class="change">· Fixed: Some UI elements were misaligned and clipped.</p>
-<p class="change">· Fixed: Hyphens were strangely big.</p>
-<p class="change">· Fixed: Infinity was displayed with its LaTeX command.</p>
-<p class="change">· Fixed: 'costUpR' was considering prestige and supremacy upgrades.</p>
+  <h3 class="text-color-medium">Version 1.3.83</h3>
+  <p class="whatsnewPar text-color">· Fixed: Taps in the 15-Puzzle were not correctly registered on some devices.</p>
 
-<h2 class="headers header3">Version 1.3.76</h2>
-<p class="change">· New Star Bonuses to increase the level of variables.</p>
-<p class="change">· Star Bonuses can now be respec'd (refunded) whenever you want.</p>
-<p class="change">· The game will now save after a manual prestige/supremacy.</p>
-<p class="change">· UI optimizations.</p>
-<p class="change">· The reward icon will light up when the permanent ad reward is active.</p>
-<p class="change">· Fixed: The minigame instruction labels were not centered.</p>
-<p class="change">· Fixed: The summary bar was only displaying two decimals for db.</p>
-<p class="change">· Fixed: Typos in translations.</p>
+  <h3 class="text-color-medium">Version 1.3.81</h3>
+  <p class="whatsnewPar text-color">· New hover control for the 15-Puzzle. Leave your finger on the screen and drag it around to make moves.</p>
+  <p class="whatsnewPar text-color">· Fixed: Variable power could be wrongly printed as very big numbers when it should instead be 0.</p>
+  <p class="whatsnewPar text-color">· Fixed: Potential crash when switching save slot with big progress difference.</p>
+  <p class="whatsnewPar text-color">· Fixed: Star bonus were sometimes not reset when changing save slots.</p>
 
-<h2 class="headers header3">Version 1.3.75</h2>
-<p class="change">· Fixed: The 2^n factor of variables jumped from 240 to 251 instead of 241.</p>
-<p class="change">· Fixed: The Supremacy warning sign was sometimes wrong when no more level was available.</p>
-<p class="change">· Fixed: The game state would sometimes not be saved on quit.</p>
+  <h3 class="text-color-medium">Version 1.3.79</h3>
+  <p class="whatsnewPar text-color">· Fixed: The OS Font size affected the alignment of some labels.</p>
+  <p class="whatsnewPar text-color">· Fixed: The summary bar was jittery in some occasions.</p>
+  <p class="whatsnewPar text-color">· Fixed: Some spaces were missing in upgrade and bonus descriptions.</p>
 
-<h2 class="headers header3">Version 1.3.74</h2>
-<p class="change">· Endgame rebalance:</p>
-<p class="change"> · Added 20 levels of the 'exponent' Supremacy upgrade to help waiting for the major update.</p>
-<p class="change"> · Removed 9 variables and readjusted their factors to improve their relative powers. Spent stars are refunded.</p>
-<p class="change"> · Fixed: 'x_i' parameters were overestimated during offline calculation.</p>
+  <h3 class="text-color-medium">Version 1.3.78</h3>
+  <p class="whatsnewPar text-color">· Fixed: Game crashed at startup for many users. I'm very sorry for that.</p>
 
-<h2 class="headers header3">Version 1.3.73</h2>
-<p class="change">· Rewards can now be stacked up to 72h.</p>
+  <h3 class="text-color-medium">Version 1.3.77</h3>
+  <p class="whatsnewPar text-color">· Fixed: Some UI elements were misaligned and clipped.</p>
+  <p class="whatsnewPar text-color">· Fixed: Hyphens were strangely big.</p>
+  <p class="whatsnewPar text-color">· Fixed: Infinity was displayed with its LaTeX command.</p>
+  <p class="whatsnewPar text-color">· Fixed: 'costUpR' was considering prestige and supremacy upgrades.</p>
 
-<h2 class="headers header3">Version 1.3.72</h2>
-<p class="change">· New languages: Chinese (Simplified &amp; Traditional), Italian, and Russian!</p>
-<p class="change">· Added Android 5.X support.</p>
+  <h3 class="text-color-medium">Version 1.3.76</h3>
+  <p class="whatsnewPar text-color">· New Star Bonuses to increase the level of variables.</p>
+  <p class="whatsnewPar text-color">· Star Bonuses can now be respec'd (refunded) whenever you want.</p>
+  <p class="whatsnewPar text-color">· The game will now save after a manual prestige/supremacy.</p>
+  <p class="whatsnewPar text-color">· UI optimizations.</p>
+  <p class="whatsnewPar text-color">· The reward icon will light up when the permanent ad reward is active.</p>
+  <p class="whatsnewPar text-color">· Fixed: The minigame instruction labels were not centered.</p>
+  <p class="whatsnewPar text-color">· Fixed: The summary bar was only displaying two decimals for db.</p>
+  <p class="whatsnewPar text-color">· Fixed: Typos in translations.</p>
 
-<h2 class="headers header3">Version 1.3.68</h2>
-<p class="change">Multiple language support: English, French, German, Portuguese (Brazil), Spanish, and Turkish. More to come!</p>
-<p class="change">· Fixed: Achievement list was resetting when collapsing a category.</p>
-<p class="change">· Fixed: Entering 'NaN' or 'Inf' as an auto prestige ratio would crash the game.</p>
-<p class="change">· Fixed: The 15-puzzle could get locked in an unsolved configuration when tapping too fast on the last winning move.</p>
+  <h3 class="text-color-medium">Version 1.3.75</h3>
+  <p class="whatsnewPar text-color">· Fixed: The 2^n factor of variables jumped from 240 to 251 instead of 241.</p>
+  <p class="whatsnewPar text-color">· Fixed: The Supremacy warning sign was sometimes wrong when no more level was available.</p>
+  <p class="whatsnewPar text-color">· Fixed: The game state would sometimes not be saved on quit.</p>
 
-<h2 class="headers header3">Version 1.3.62</h2>
-<p class="change">· Kept the hint in the description of unlocked secret achievements.</p>
-<p class="change">· Fixed: Second Infinity would not break since 1.3.61.</p>
-<p class="change">· Fixed: Using the dark theme, the highlight of selected text was black.</p>
-<p class="change">· Tentative fix: Buyable rows sometimes get shrinked.</p>
+  <h3 class="text-color-medium">Version 1.3.74</h3>
+  <p class="whatsnewPar text-color">· Endgame rebalance:</p>
+  <p class="whatsnewPar text-color"> · Added 20 levels of the 'exponent' Supremacy upgrade to help waiting for the major update.</p>
+  <p class="whatsnewPar text-color"> · Removed 9 variables and readjusted their factors to improve their relative powers. Spent stars are refunded.</p>
+  <p class="whatsnewPar text-color"> · Fixed: 'x_i' parameters were overestimated during offline calculation.</p>
 
-<h2 class="headers header3">Version 1.3.61</h2>
-<p class="change">· A new 'Math Expression' Auto Prestige trigger that lets you enter your own conditions based on any in-game parameters.</p>
-<p class="change">· Added three save slots to easily switch between game states.</p>
-<p class="change">· A popup will now be displayed when an update is available on the Store.</p>
-<p class="change">· The 'Import' window now displays some stats before importing.</p>
-<p class="change">· Importing a state now offers to calculate the offline progress.</p>
-<p class="change">· Improved time management (Play time, time zones, etc.).</p>
-<p class="change">· Added a 'Locked' sorting mode for achievements.</p>
-<p class="change">· Added an option to disable offline progress (for speedruns).</p>
-<p class="change">· Updated toggle UI, reworked Settings, and move Permanent Ad Reward to the Rewards window.</p>
-<p class="change">· Added an option to deactivate the permanent ad reward.</p>
-<p class="change">· Added the current ratio/time in the Auto Prestige window.</p>
-<p class="change">· Time skipping check will no longer offer to forgive if you skip more than 7 days.</p>
-<p class="change">· Time won't stop anymore after a prestige when no variables are bought.</p>
-<p class="change">· IAP's localized price is now saved in case no connection is available.</p>
-<p class="change">· Fixed: 'Time Since Last Supremacy' was not properly saved.</p>
-<p class="change">· Fixed: The auto prestige toggle color did not change when toggled.</p>
-<p class="change">· Fixed: The Supremacy warning was still displayed even if all upgrades are bought.</p>
-<p class="change">· Fixed: Exponent supremacy upgrade info went above the level limit.</p>
-<p class="change">· Fixed: The back button did not close windows and puzzles could be closed by clicking the background.</p>
-<p class="change">· Fixed: The star chance was not updated dynamically in the Statistics window.</p>
-<p class="change">· Fixed: Some story chapter could be unlocked before the previous one.</p>
+  <h3 class="text-color-medium">Version 1.3.73</h3>
+  <p class="whatsnewPar text-color">· Rewards can now be stacked up to 72h.</p>
 
-<h2 class="headers header3">Version 1.3.57</h2>
-<p class="change">· Resizing the graph will snap to its original position if it was moved.</p>
-<p class="change">· Buyable descriptions are now dynamic whenever it makes sense.</p>
-<p class="change">· Auto Prestige ratio now displays the user input without reformatting.</p>
-<p class="change">· Fixed: Buyable toggle would also randomly toggle neighboring buyables.</p>
-<p class="change">· Fixed: Achievements 'Killing Spree' and 'You Can Stop Now' were not considering taps.</p>
+  <h3 class="text-color-medium">Version 1.3.72</h3>
+  <p class="whatsnewPar text-color">· New languages: Chinese (Simplified &amp; Traditional), Italian, and Russian!</p>
+  <p class="whatsnewPar text-color">· Added Android 5.X support.</p>
 
-<h2 class="headers header3">Version 1.3.55</h2>
-<p class="change">· Moved the 'Buy All' settings to the left.</p>
-<p class="change">· Added an option to add shades of gray (not 'Grey') to minigame tiles.</p>
-<p class="change">· Added an option to move the acceleration button to the top.</p>
-<p class="change">· Added 'Time Since Last Supremacy' in the Statistics window.</p>
-<p class="change">· Increased the size of the 'X' button to close popups.</p>
-<p class="change">· Improved readability of the star count in the main panel.</p>
-<p class="change">· Added the possibility to resize the equation frame by dragging the currency bar.</p>
-<p class="change">· Fixed: Pressing the 'x' button in a completed minigame would not award the stars.</p>
-<p class="change">· Fixed: The 6th secret achievement's condition was off by 1.</p>
-<p class="change">· Fixed: The acceleration button had a dead spot on the left.</p>
-<p class="change">· Fixed: Doing 'Reset All' could result in a negative star amount.</p>
-<p class="change">· Fixed: Some indices were skipped in the Achievement popup.</p>
-<p class="change">· Fixed: Toggle indicators were hidden when the 'Buy All' button was refunded.</p>
-<p class="change">· Fixed: When toggling the buyable selection, some rows would sometimes get shrinked.</p>
-<p class="change">· Fixed: The x_i labels in the equation frame were clipped on smaller screens.</p>
-<p class="change">· Almost Fixed: Added ways to counter the acceleration-always-on issue.</p>
+  <h3 class="text-color-medium">Version 1.3.68</h3>
+  <p class="whatsnewPar text-color">Multiple language support: English, French, German, Portuguese (Brazil), Spanish, and Turkish. More to come!</p>
+  <p class="whatsnewPar text-color">· Fixed: Achievement list was resetting when collapsing a category.</p>
+  <p class="whatsnewPar text-color">· Fixed: Entering 'NaN' or 'Inf' as an auto prestige ratio would crash the game.</p>
+  <p class="whatsnewPar text-color">· Fixed: The 15-puzzle could get locked in an unsolved configuration when tapping too fast on the last winning move.</p>
 
-<h2 class="headers header3">Version 1.3.54</h2>
-<p class="change">· The 'Buy All' button now buys one level of the free stuff.</p>
-<p class="change">· Added options to control which buyable is considered by auto buyers and the 'Buy All' button. Longpress on a checkbox to toggle all at once.</p>
-<p class="change">· Auto-buyers and the 'Buy All' button now respect the buy amount (1/10/25/100/max).</p>
-<p class="change">· Holding the 'i' icon will now continue to show the info even when switch panels until it's released.</p>
-<p class="change">· Extended the 24h offline progress limit to 7 days.</p>
-<p class="change">· Achievement categories are now collapsible.</p>
-<p class="change">· When a story chapter is triggered, popups are now hidden instead of being closed. They are unhidden after completion.</p>
-<p class="change">· Torus Puzzle: Once a row is moving, avoid switching to moving the column to prevent visual glitches.</p>
-<p class="change">· Fixed: Supremacy was displaying a warning sign when f(t) was infinite.</p>
-<p class="change">· Fixed: Auto buyer toggle intensity would not always change when being activated/deactivated.</p>
-<p class="change">· Fixed: When playing multiple minigames in a row, the app would start to lag.</p>
-<p class="change">· Fixed typos.</p>
+  <h3 class="text-color-medium">Version 1.3.62</h3>
+  <p class="whatsnewPar text-color">· Kept the hint in the description of unlocked secret achievements.</p>
+  <p class="whatsnewPar text-color">· Fixed: Second Infinity would not break since 1.3.61.</p>
+  <p class="whatsnewPar text-color">· Fixed: Using the dark theme, the highlight of selected text was black.</p>
+  <p class="whatsnewPar text-color">· Tentative fix: Buyable rows sometimes get shrinked.</p>
 
-<h2 class="headers header3">Version 1.3.53</h2>
-<p class="change">· Added a 'Costs Are Divided' achievement to make it clear that the costs divide the main currency.</p>
-<p class="change">· Changed the rating popup to display 'Don't ask again' instead of 'No' to make it clear that it won't ever popup again.</p>
-<p class="change">· Fixed: Number inputs didn't support no mantissa or negative exponents.</p>
-<p class="change">· Fixed: Puzzles are now locked when they are completed.</p>
-<p class="change">· Fixed: The automation rate didn't reset properly after a Supremacy.</p>
-<p class="change">· Fixed: If you tapped fast enough, some popups could pop twice.</p>
-<p class="change">· Fixed typos.</p>
+  <h3 class="text-color-medium">Version 1.3.61</h3>
+  <p class="whatsnewPar text-color">· A new 'Math Expression' Auto Prestige trigger that lets you enter your own conditions based on any in-game parameters.</p>
+  <p class="whatsnewPar text-color">· Added three save slots to easily switch between game states.</p>
+  <p class="whatsnewPar text-color">· A popup will now be displayed when an update is available on the Store.</p>
+  <p class="whatsnewPar text-color">· The 'Import' window now displays some stats before importing.</p>
+  <p class="whatsnewPar text-color">· Importing a state now offers to calculate the offline progress.</p>
+  <p class="whatsnewPar text-color">· Improved time management (Play time, time zones, etc.).</p>
+  <p class="whatsnewPar text-color">· Added a 'Locked' sorting mode for achievements.</p>
+  <p class="whatsnewPar text-color">· Added an option to disable offline progress (for speedruns).</p>
+  <p class="whatsnewPar text-color">· Updated toggle UI, reworked Settings, and move Permanent Ad Reward to the Rewards window.</p>
+  <p class="whatsnewPar text-color">· Added an option to deactivate the permanent ad reward.</p>
+  <p class="whatsnewPar text-color">· Added the current ratio/time in the Auto Prestige window.</p>
+  <p class="whatsnewPar text-color">· Time skipping check will no longer offer to forgive if you skip more than 7 days.</p>
+  <p class="whatsnewPar text-color">· Time won't stop anymore after a prestige when no variables are bought.</p>
+  <p class="whatsnewPar text-color">· IAP's localized price is now saved in case no connection is available.</p>
+  <p class="whatsnewPar text-color">· Fixed: 'Time Since Last Supremacy' was not properly saved.</p>
+  <p class="whatsnewPar text-color">· Fixed: The auto prestige toggle color did not change when toggled.</p>
+  <p class="whatsnewPar text-color">· Fixed: The Supremacy warning was still displayed even if all upgrades are bought.</p>
+  <p class="whatsnewPar text-color">· Fixed: Exponent supremacy upgrade info went above the level limit.</p>
+  <p class="whatsnewPar text-color">· Fixed: The back button did not close windows and puzzles could be closed by clicking the background.</p>
+  <p class="whatsnewPar text-color">· Fixed: The star chance was not updated dynamically in the Statistics window.</p>
+  <p class="whatsnewPar text-color">· Fixed: Some story chapter could be unlocked before the previous one.</p>
 
-<h2 class="headers header3">Version 1.3.52</h2>
-<p class="change">· Fixed: Crash when opening Auto Prestige Settings on Android 10.</p>
+  <h3 class="text-color-medium">Version 1.3.57</h3>
+  <p class="whatsnewPar text-color">· Resizing the graph will snap to its original position if it was moved.</p>
+  <p class="whatsnewPar text-color">· Buyable descriptions are now dynamic whenever it makes sense.</p>
+  <p class="whatsnewPar text-color">· Auto Prestige ratio now displays the user input without reformatting.</p>
+  <p class="whatsnewPar text-color">· Fixed: Buyable toggle would also randomly toggle neighboring buyables.</p>
+  <p class="whatsnewPar text-color">· Fixed: Achievements 'Killing Spree' and 'You Can Stop Now' were not considering taps.</p>
 
-<h2 class="headers header3">Version 1.3.51</h2>
-<p class="change">· Added a confirmation box when giving up a minigame.</p>
-<p class="change">· Fixed: Crash when tapping too fast in the 15-Puzzle.</p>
-<p class="change">· Fixed: 'Time Since Last Prestige' was resetting when reopening the game.</p>
+  <h3 class="text-color-medium">Version 1.3.55</h3>
+  <p class="whatsnewPar text-color">· Moved the 'Buy All' settings to the left.</p>
+  <p class="whatsnewPar text-color">· Added an option to add shades of gray (not 'Grey') to minigame tiles.</p>
+  <p class="whatsnewPar text-color">· Added an option to move the acceleration button to the top.</p>
+  <p class="whatsnewPar text-color">· Added 'Time Since Last Supremacy' in the Statistics window.</p>
+  <p class="whatsnewPar text-color">· Increased the size of the 'X' button to close popups.</p>
+  <p class="whatsnewPar text-color">· Improved readability of the star count in the main panel.</p>
+  <p class="whatsnewPar text-color">· Added the possibility to resize the equation frame by dragging the currency bar.</p>
+  <p class="whatsnewPar text-color">· Fixed: Pressing the 'x' button in a completed minigame would not award the stars.</p>
+  <p class="whatsnewPar text-color">· Fixed: The 6th secret achievement's condition was off by 1.</p>
+  <p class="whatsnewPar text-color">· Fixed: The acceleration button had a dead spot on the left.</p>
+  <p class="whatsnewPar text-color">· Fixed: Doing 'Reset All' could result in a negative star amount.</p>
+  <p class="whatsnewPar text-color">· Fixed: Some indices were skipped in the Achievement popup.</p>
+  <p class="whatsnewPar text-color">· Fixed: Toggle indicators were hidden when the 'Buy All' button was refunded.</p>
+  <p class="whatsnewPar text-color">· Fixed: When toggling the buyable selection, some rows would sometimes get shrinked.</p>
+  <p class="whatsnewPar text-color">· Fixed: The x_i labels in the equation frame were clipped on smaller screens.</p>
+  <p class="whatsnewPar text-color">· Almost Fixed: Added ways to counter the acceleration-always-on issue.</p>
 
-<h2 class="headers header3">Version 1.3.50</h2>
-<p class="change">· The 15-Puzzle now allows to move many tiles at once.</p>
-<p class="change">· The Torus Puzzle now allows to move a row/column of more than one tile at once.</p>
-<p class="change">· Added timing and best times for minigames.</p>
-<p class="change">· Scale the minigame rewards according to the star chance.</p>
-<p class="change">· Achievements are now separated into categories and the list is sortable by 'Category' and 'Last Unlocked'.</p>
-<p class="change">· Fixed: Minigames were locked after a supremacy without refunding stars. Any spent stars on minigames has been refunded in this update, even if you bought it.</p>
-<p class="change">· Fixed: Number formatting was slightly different depending on the device's language.</p>
+  <h3 class="text-color-medium">Version 1.3.54</h3>
+  <p class="whatsnewPar text-color">· The 'Buy All' button now buys one level of the free stuff.</p>
+  <p class="whatsnewPar text-color">· Added options to control which buyable is considered by auto buyers and the 'Buy All' button. Longpress on a checkbox to toggle all at once.</p>
+  <p class="whatsnewPar text-color">· Auto-buyers and the 'Buy All' button now respect the buy amount (1/10/25/100/max).</p>
+  <p class="whatsnewPar text-color">· Holding the 'i' icon will now continue to show the info even when switch panels until it's released.</p>
+  <p class="whatsnewPar text-color">· Extended the 24h offline progress limit to 7 days.</p>
+  <p class="whatsnewPar text-color">· Achievement categories are now collapsible.</p>
+  <p class="whatsnewPar text-color">· When a story chapter is triggered, popups are now hidden instead of being closed. They are unhidden after completion.</p>
+  <p class="whatsnewPar text-color">· Torus Puzzle: Once a row is moving, avoid switching to moving the column to prevent visual glitches.</p>
+  <p class="whatsnewPar text-color">· Fixed: Supremacy was displaying a warning sign when f(t) was infinite.</p>
+  <p class="whatsnewPar text-color">· Fixed: Auto buyer toggle intensity would not always change when being activated/deactivated.</p>
+  <p class="whatsnewPar text-color">· Fixed: When playing multiple minigames in a row, the app would start to lag.</p>
+  <p class="whatsnewPar text-color">· Fixed typos.</p>
 
-<h2 class="headers header3">Version 1.3.49</h2>
-<p class="change">· The time check will allow for one mistake.</p>
-<p class="change">· Added 'Time Since Last Prestige' in the statistics window.</p>
-<p class="change">· Added 'Tap Stars' in the statistics window.</p>
-<p class="change">· Achievements now display the completion percentage whenever it makes sense.</p>
-<p class="change">· The number notation now changes from 'e' to 'ee' at 1e10000 (ee4).</p>
-<p class="change">· The font size of minigames is now adapted to the tile size.</p>
-<p class="change">· Renamed the Mobius Puzzle to Torus Puzzle, its offical name.</p>
-<p class="change">· Minigames are now buyable from the Rewards window instead of the Star Bonuses.</p>
-<p class="change">· Adjusted the rewards of minigames according to a standard time-to-complete.</p>
-<p class="change">· Fixed: Potential crash when unlocking an achievement.</p>
-<p class="change">· Fixed: The acceleration multiplier could remain active when the app was in background.</p>
+  <h3 class="text-color-medium">Version 1.3.53</h3>
+  <p class="whatsnewPar text-color">· Added a 'Costs Are Divided' achievement to make it clear that the costs divide the main currency.</p>
+  <p class="whatsnewPar text-color">· Changed the rating popup to display 'Don't ask again' instead of 'No' to make it clear that it won't ever popup again.</p>
+  <p class="whatsnewPar text-color">· Fixed: Number inputs didn't support no mantissa or negative exponents.</p>
+  <p class="whatsnewPar text-color">· Fixed: Puzzles are now locked when they are completed.</p>
+  <p class="whatsnewPar text-color">· Fixed: The automation rate didn't reset properly after a Supremacy.</p>
+  <p class="whatsnewPar text-color">· Fixed: If you tapped fast enough, some popups could pop twice.</p>
+  <p class="whatsnewPar text-color">· Fixed typos.</p>
 
-<h2 class="headers header3">Version 1.3.48</h2>
-<p class="change">· Theme and auto prestige selectors are now toggles.</p>
-<p class="change">· The equality sign for the x_i formula is now a left arrow to make it clear that it is an update.</p>
-<p class="change">· Added an option to adjust the resolution of the graph.</p>
-<p class="change">· The IAP now displays localized price.</p>
-<p class="change">· Increased the tapping area of the acceleration button.</p>
-<p class="change">· The auto prestige time can now use the format mm:ss.</p>
-<p class="change">· Time check: The game will be locked if it detects a backward change in time. For example, if you change time 24h in the future, and go back 24h, the game will be locked for 1 day. By pressing the back button, you can still access the game and to do 'Reset All'.</p>
-<p class="change">· Fixed: The game was paused after closing the leaderboard.</p>
+  <h3 class="text-color-medium">Version 1.3.52</h3>
+  <p class="whatsnewPar text-color">· Fixed: Crash when opening Auto Prestige Settings on Android 10.</p>
 
-<h2 class="headers header3">Version 1.3.47</h2>
-<p class="change">· Buy amounts are now independent for each panel.</p>
-<p class="change">· Added an info button to buyable panels. Hold it to see the additional info.</p>
-<p class="change">· Added an ID to each achievement.</p>
-<p class="change">· Added an auto prestige rule based on time.</p>
-<p class="change">· Lowered the auto prestige ratio limit to 0.1.</p>
-<p class="change">· Added the cumulative f(t) for the current supremacy in the statistics.</p>
-<p class="change">· The 15-Puzzle snaps tiles to next position when another tile is tapped.</p>
-<p class="change">· Fixed: Leaderboard did not open properly.</p>
-<p class="change">· Fixed: Tapping the acceleration button then holding it could lead to the acceleration not working.</p>
-<p class="change">· Fixed: Different sources of crash.</p>
-<p class="change">· Fixed the ability to do multiple Supremacies in a row.</p>
-<p class="change">· Fixed: Dollar currency is now on the left.</p>
-<p class="change">· Fixed typos</p>
+  <h3 class="text-color-medium">Version 1.3.51</h3>
+  <p class="whatsnewPar text-color">· Added a confirmation box when giving up a minigame.</p>
+  <p class="whatsnewPar text-color">· Fixed: Crash when tapping too fast in the 15-Puzzle.</p>
+  <p class="whatsnewPar text-color">· Fixed: 'Time Since Last Prestige' was resetting when reopening the game.</p>
 
-<h2 class="headers header3">Version 1.3.46</h2>
-<p class="change">· Added prestige and supremacy increments to the main panel.</p>
-<p class="change">· Added 5 more secret achievements.</p>
-<p class="change">· Added the evaluated value of 'y' in the statistics.</p>
-<p class="change">· Made the minigames more 'snappy'.</p>
-<p class="change">· Added a buy amount of x25.</p>
-<p class="change">· Added a link to the wiki.</p>
-<p class="change">· Fixed: Using the back button on the main panel was not putting the game to sleep anymore.</p>
-<p class="change">· Fixed: The acceleration button stayed always on if an auto clicker was active.</p>
-<p class="change">· Fixed: The 'What's New' window was popping until the app was fully closed.</p>
-<p class="change">· Fixed: Display glitch when variables text was too long.</p>
+  <h3 class="text-color-medium">Version 1.3.50</h3>
+  <p class="whatsnewPar text-color">· The 15-Puzzle now allows to move many tiles at once.</p>
+  <p class="whatsnewPar text-color">· The Torus Puzzle now allows to move a row/column of more than one tile at once.</p>
+  <p class="whatsnewPar text-color">· Added timing and best times for minigames.</p>
+  <p class="whatsnewPar text-color">· Scale the minigame rewards according to the star chance.</p>
+  <p class="whatsnewPar text-color">· Achievements are now separated into categories and the list is sortable by 'Category' and 'Last Unlocked'.</p>
+  <p class="whatsnewPar text-color">· Fixed: Minigames were locked after a supremacy without refunding stars. Any spent stars on minigames has been refunded in this update, even if you bought it.</p>
+  <p class="whatsnewPar text-color">· Fixed: Number formatting was slightly different depending on the device's language.</p>
 
-<h2 class="headers header3">Version 1.3.44</h2>
-<p class="change">· Tentative fix for the minigame freeze issue.</p>
-<p class="change">· Fixed: Infinity is now broken after a Supremacy once f(t) reaches infinity, whatever the current value of f(t).</p>
-<p class="change">· Fixed typos.</p>
+  <h3 class="text-color-medium">Version 1.3.49</h3>
+  <p class="whatsnewPar text-color">· The time check will allow for one mistake.</p>
+  <p class="whatsnewPar text-color">· Added 'Time Since Last Prestige' in the statistics window.</p>
+  <p class="whatsnewPar text-color">· Added 'Tap Stars' in the statistics window.</p>
+  <p class="whatsnewPar text-color">· Achievements now display the completion percentage whenever it makes sense.</p>
+  <p class="whatsnewPar text-color">· The number notation now changes from 'e' to 'ee' at 1e10000 (ee4).</p>
+  <p class="whatsnewPar text-color">· The font size of minigames is now adapted to the tile size.</p>
+  <p class="whatsnewPar text-color">· Renamed the Mobius Puzzle to Torus Puzzle, its offical name.</p>
+  <p class="whatsnewPar text-color">· Minigames are now buyable from the Rewards window instead of the Star Bonuses.</p>
+  <p class="whatsnewPar text-color">· Adjusted the rewards of minigames according to a standard time-to-complete.</p>
+  <p class="whatsnewPar text-color">· Fixed: Potential crash when unlocking an achievement.</p>
+  <p class="whatsnewPar text-color">· Fixed: The acceleration multiplier could remain active when the app was in background.</p>
 
-<h2 class="headers header3">Version 1.3.43</h2>
-<p class="change">· Added the acceleration multiplier besides the button.</p>
-<p class="change">· Changed the left arrow of the equation to an equality sign.</p>
-<p class="change">· Rebalanced Supremacy upgrades to make it more challenging.</p>
-<p class="change">· Rebalanced variable powers so first variables have more power in the end game.</p>
-<p class="change">· Numbers above ee999.99 are now noted eeXXXX.X instead of e'^{3}3.XXXX'.</p>
-<p class="change">· Added a new story chapter for mid-end game.</p>
-<p class="change">· Added a visual cue for secret achievements.</p>
-<p class="change">· Auto buyers now buy free stuff indefinitely.</p>
-<p class="change">· Fixed: Reopening the game while it was minimized on the splash screen would not recompute offline progress.</p>
-<p class="change">· Fixed: The warning sign on the Supremacy button is now updated while the Prestige menu is open.</p>
-<p class="change">· Fixed: Potential crash when closing the Prestige menu.</p>
-<p class="change">· Fixed: Potential crash related to secret achievements.</p>
-<p class="change">· Fixed: Past level 10000, the variable exponents were not correct.</p>
+  <h3 class="text-color-medium">Version 1.3.48</h3>
+  <p class="whatsnewPar text-color">· Theme and auto prestige selectors are now toggles.</p>
+  <p class="whatsnewPar text-color">· The equality sign for the x_i formula is now a left arrow to make it clear that it is an update.</p>
+  <p class="whatsnewPar text-color">· Added an option to adjust the resolution of the graph.</p>
+  <p class="whatsnewPar text-color">· The IAP now displays localized price.</p>
+  <p class="whatsnewPar text-color">· Increased the tapping area of the acceleration button.</p>
+  <p class="whatsnewPar text-color">· The auto prestige time can now use the format mm:ss.</p>
+  <p class="whatsnewPar text-color">· Time check: The game will be locked if it detects a backward change in time. For example, if you change time 24h in the future, and go back 24h, the game will be locked for 1 day. By pressing the back button, you can still access the game and to do 'Reset All'.</p>
+  <p class="whatsnewPar text-color">· Fixed: The game was paused after closing the leaderboard.</p>
 
-<h2 class="headers header3">Version 1.3.42</h2>
-<p class="change">· Added splash screen animation for offline progress calculation.</p>
-<p class="change">· Removed the 'Welcome Back' popup as the splash screen now contains the same info.</p>
-<p class="change">· Secret achievements! I also added many regular achievements. More to come.</p>
-<p class="change">· Added a 'Overall Time Played' to differentiate with the current game play time that changes when import a save.</p>
-<p class="change">· Fixed: Potential crash when signing in to the leaderboard.</p>
-<p class="change">· Fixed: Crash when using the back button during splash screen.</p>
+  <h3 class="text-color-medium">Version 1.3.47</h3>
+  <p class="whatsnewPar text-color">· Buy amounts are now independent for each panel.</p>
+  <p class="whatsnewPar text-color">· Added an info button to buyable panels. Hold it to see the additional info.</p>
+  <p class="whatsnewPar text-color">· Added an ID to each achievement.</p>
+  <p class="whatsnewPar text-color">· Added an auto prestige rule based on time.</p>
+  <p class="whatsnewPar text-color">· Lowered the auto prestige ratio limit to 0.1.</p>
+  <p class="whatsnewPar text-color">· Added the cumulative f(t) for the current supremacy in the statistics.</p>
+  <p class="whatsnewPar text-color">· The 15-Puzzle snaps tiles to next position when another tile is tapped.</p>
+  <p class="whatsnewPar text-color">· Fixed: Leaderboard did not open properly.</p>
+  <p class="whatsnewPar text-color">· Fixed: Tapping the acceleration button then holding it could lead to the acceleration not working.</p>
+  <p class="whatsnewPar text-color">· Fixed: Different sources of crash.</p>
+  <p class="whatsnewPar text-color">· Fixed the ability to do multiple Supremacies in a row.</p>
+  <p class="whatsnewPar text-color">· Fixed: Dollar currency is now on the left.</p>
+  <p class="whatsnewPar text-color">· Fixed typos</p>
 
-<h2 class="headers header3">Version 1.3.41</h2>
-<p class="change">· Added a Star Bonus to increase automation rate.</p>
-<p class="change">· Added a visualization of f(t) behind the equation as an eye-candy.</p>
-<p class="change">· Added an option to keep star bonus allocation after Supremacy.</p>
-<p class="change">· Removed the upgrade popup as upgrades can be accessed through the main panel.</p>
-<p class="change">· Changed the Supremacy lock icon to a warning sign when you can do a Supremacy that would not allocate enough currency for the next upgrade.</p>
-<p class="change">· Fixed potential crash during offline progress calculation and when achievements and stories unlock.</p>
-<p class="change">· Fixed: Taps were not counted for statistics and achievements.</p>
-<p class="change">· Fixed typos.</p>
+  <h3 class="text-color-medium">Version 1.3.46</h3>
+  <p class="whatsnewPar text-color">· Added prestige and supremacy increments to the main panel.</p>
+  <p class="whatsnewPar text-color">· Added 5 more secret achievements.</p>
+  <p class="whatsnewPar text-color">· Added the evaluated value of 'y' in the statistics.</p>
+  <p class="whatsnewPar text-color">· Made the minigames more 'snappy'.</p>
+  <p class="whatsnewPar text-color">· Added a buy amount of x25.</p>
+  <p class="whatsnewPar text-color">· Added a link to the wiki.</p>
+  <p class="whatsnewPar text-color">· Fixed: Using the back button on the main panel was not putting the game to sleep anymore.</p>
+  <p class="whatsnewPar text-color">· Fixed: The acceleration button stayed always on if an auto clicker was active.</p>
+  <p class="whatsnewPar text-color">· Fixed: The 'What's New' window was popping until the app was fully closed.</p>
+  <p class="whatsnewPar text-color">· Fixed: Display glitch when variables text was too long.</p>
 
-<h2 class="headers header3">Version 1.3.40</h2>
-<p class="change">· Fixed: Supremacy currency was not allocated as shown in the Prestige window.</p>
-<p class="change">· Fixed: Story chapter 'Last Hope' was not unlocked at the correct stage.</p>
-<p class="change">· Added success confirmation after export.</p>
-<p class="change">· Allow access to the Prestige menu after Supremacy.</p>
-<p class="change">· Many optimizations.</p>
+  <h3 class="text-color-medium">Version 1.3.44</h3>
+  <p class="whatsnewPar text-color">· Tentative fix for the minigame freeze issue.</p>
+  <p class="whatsnewPar text-color">· Fixed: Infinity is now broken after a Supremacy once f(t) reaches infinity, whatever the current value of f(t).</p>
+  <p class="whatsnewPar text-color">· Fixed typos.</p>
 
-<h2 class="headers header3">Version 1.3.39</h2>
-<p class="change">· The star icon now lights up only when there is a affordable bonus.</p>
-<p class="change">· Added the total play time in the statistics.</p>
-<p class="change">· Added a progress bar when calculating offline progress.</p>
-<p class="change">· Added some introduction instructions.</p>
-<p class="change">· Fixed: The Auto Prestige ratio was only changing it's value when the 'enter' button was pressed. It now changes as soon as it looses focus.</p>
-<p class="change">· Minor UI enhancements.</p>
+  <h3 class="text-color-medium">Version 1.3.43</h3>
+  <p class="whatsnewPar text-color">· Added the acceleration multiplier besides the button.</p>
+  <p class="whatsnewPar text-color">· Changed the left arrow of the equation to an equality sign.</p>
+  <p class="whatsnewPar text-color">· Rebalanced Supremacy upgrades to make it more challenging.</p>
+  <p class="whatsnewPar text-color">· Rebalanced variable powers so first variables have more power in the end game.</p>
+  <p class="whatsnewPar text-color">· Numbers above ee999.99 are now noted eeXXXX.X instead of e'^{3}3.XXXX'.</p>
+  <p class="whatsnewPar text-color">· Added a new story chapter for mid-end game.</p>
+  <p class="whatsnewPar text-color">· Added a visual cue for secret achievements.</p>
+  <p class="whatsnewPar text-color">· Auto buyers now buy free stuff indefinitely.</p>
+  <p class="whatsnewPar text-color">· Fixed: Reopening the game while it was minimized on the splash screen would not recompute offline progress.</p>
+  <p class="whatsnewPar text-color">· Fixed: The warning sign on the Supremacy button is now updated while the Prestige menu is open.</p>
+  <p class="whatsnewPar text-color">· Fixed: Potential crash when closing the Prestige menu.</p>
+  <p class="whatsnewPar text-color">· Fixed: Potential crash related to secret achievements.</p>
+  <p class="whatsnewPar text-color">· Fixed: Past level 10000, the variable exponents were not correct.</p>
 
-<h2 class="headers header3">Version 1.3.38</h2>
-<p class="change">· Added a currency bar below the equation.</p>
-<p class="change">· Removed the 'db' cap after the first Supremacy.</p>
-<p class="change">· Fixed: Rewards were not updated correctly.</p>
-<p class="change">· Fixed: Taps did not generate stars since 1.3.35</p>
-<p class="change">· Lots of optimizations.</p>
+  <h3 class="text-color-medium">Version 1.3.42</h3>
+  <p class="whatsnewPar text-color">· Added splash screen animation for offline progress calculation.</p>
+  <p class="whatsnewPar text-color">· Removed the 'Welcome Back' popup as the splash screen now contains the same info.</p>
+  <p class="whatsnewPar text-color">· Secret achievements! I also added many regular achievements. More to come.</p>
+  <p class="whatsnewPar text-color">· Added a 'Overall Time Played' to differentiate with the current game play time that changes when import a save.</p>
+  <p class="whatsnewPar text-color">· Fixed: Potential crash when signing in to the leaderboard.</p>
+  <p class="whatsnewPar text-color">· Fixed: Crash when using the back button during splash screen.</p>
 
-<h2 class="headers header3">Version 1.3.35</h2>
-<p class="change">· Automation features now remember their last state after Supremacy.</p>
-<p class="change">· Added shorter and more specific instructions during the game.</p>
-<p class="change">· Added a story chapter to indicate the time to perform a first Supremacy.</p>
-<p class="change">· Fixed: Potential crash while performing a Prestige or Supremacy.</p>
-<p class="change">· Fixed: After buying all supremacy upgrades, the description would display 'Unlock x9'.</p>
+  <h3 class="text-color-medium">Version 1.3.41</h3>
+  <p class="whatsnewPar text-color">· Added a Star Bonus to increase automation rate.</p>
+  <p class="whatsnewPar text-color">· Added a visualization of f(t) behind the equation as an eye-candy.</p>
+  <p class="whatsnewPar text-color">· Added an option to keep star bonus allocation after Supremacy.</p>
+  <p class="whatsnewPar text-color">· Removed the upgrade popup as upgrades can be accessed through the main panel.</p>
+  <p class="whatsnewPar text-color">· Changed the Supremacy lock icon to a warning sign when you can do a Supremacy that would not allocate enough currency for the next upgrade.</p>
+  <p class="whatsnewPar text-color">· Fixed potential crash during offline progress calculation and when achievements and stories unlock.</p>
+  <p class="whatsnewPar text-color">· Fixed: Taps were not counted for statistics and achievements.</p>
+  <p class="whatsnewPar text-color">· Fixed typos.</p>
 
-<h2 class="headers header3">Version 1.3.34</h2>
-<p class="change">· Please refer to 1.3.33 notes for the major update.</p>
-<p class="change">· Fixed: The Torus puzzle could be played by unlocking the 15-Puzzle.</p>
-<p class="change">· Fixed: Entry cursor color for black theme.</p>
-<p class="change">· Fixed: Couldn't tap the equation while holding the accelerator.</p>
-<p class="change">· Fixed: When Auto-prestige is activated, there was a chance that the supremacy currency is not awarded as shown in the Prestige popup.</p>
-<p class="change">· Fixed: Minigames were not accessible after purchasing 'Permanent Ad Reward'.</p>
-<p class="change">· Import/Export of save points.</p>
-        
-<h2 class="headers header3">Version 1.3.33</h2>
-<p class="change">Major Update: New mechanics, currencies, minigames, and balance.</p>
-<p class="change">· Important note: The mechanics has changed quite a lot with this update. I have awarded some of the new currencies and stars depending on your previous progress. Please overview the new features before blindly spending the currencies. You should prioritize purchasing variables before automation features. If the Supremacy button appeared in the Prestige menu and your potential supremacy currency ψ is above 1.5, consider performing a Supremacy. If you have any concerns, please contact me via Discord.</p>
-<p class="change">· New prestige and supremacy currencies. Prestige currency is used to improve regular upgrades, while supremacy upgrades improve the equation itself.</p>
-<p class="change">· Two minigames have been added to earn stars.</p>
-<p class="change">· A storyline!</p>
-<p class="change">· New variables can be purchased with stars, for a total of 29 variables.</p>
-<p class="change">· New automation features: autobuyers for variables and upgrades, and auto prestige. Can be purchased with stars.</p>
-<p class="change">· Accelerator button (see instruction).</p>
-<p class="change">· The Auto-clicker IAP has been removed (buyers will be refunded). This IAP has been replaced by a permanent ad reward.</p>
-<p class="change">· New dark UI theme.</p>
-<p class="change">· Smoother progress and balance.</p>
-<p class="change">· I hope you will enjoy the new content!</p>
+  <h3 class="text-color-medium">Version 1.3.40</h3>
+  <p class="whatsnewPar text-color">· Fixed: Supremacy currency was not allocated as shown in the Prestige window.</p>
+  <p class="whatsnewPar text-color">· Fixed: Story chapter 'Last Hope' was not unlocked at the correct stage.</p>
+  <p class="whatsnewPar text-color">· Added success confirmation after export.</p>
+  <p class="whatsnewPar text-color">· Allow access to the Prestige menu after Supremacy.</p>
+  <p class="whatsnewPar text-color">· Many optimizations.</p>
 
-<h2 class="headers header3">Version 1.2.31</h2>
-<p class="change">· Ads: Prestige and Idle bonus have been removed. The only remaining ad source are Rewards, which has been extended to 2 hours and give 50% bonus to dt instead of 25%.</p>
-<p class="change">· Tap power is now limited to dt=1, regardless of the current dt.</p>
-<p class="change">· Fixed: Google Play Games was asking to install after a failed sign in.</p>
-<p class="change">· Fixed: Audio on Android 5.* is disabled for now because it was causing crashes.</p>
+  <h3 class="text-color-medium">Version 1.3.39</h3>
+  <p class="whatsnewPar text-color">· The star icon now lights up only when there is a affordable bonus.</p>
+  <p class="whatsnewPar text-color">· Added the total play time in the statistics.</p>
+  <p class="whatsnewPar text-color">· Added a progress bar when calculating offline progress.</p>
+  <p class="whatsnewPar text-color">· Added some introduction instructions.</p>
+  <p class="whatsnewPar text-color">· Fixed: The Auto Prestige ratio was only changing it's value when the 'enter' button was pressed. It now changes as soon as it looses focus.</p>
+  <p class="whatsnewPar text-color">· Minor UI enhancements.</p>
 
-<h2 class="headers header3">Version 1.2.29</h2>
-<p class="change">· Fixed: The game would occasionally crash when opening a popup.</p>
-<p class="change">· Fixed: Number display was sometimes written as 10.000e27 instead of 1.000e28.</p>
+  <h3 class="text-color-medium">Version 1.3.38</h3>
+  <p class="whatsnewPar text-color">· Added a currency bar below the equation.</p>
+  <p class="whatsnewPar text-color">· Removed the 'db' cap after the first Supremacy.</p>
+  <p class="whatsnewPar text-color">· Fixed: Rewards were not updated correctly.</p>
+  <p class="whatsnewPar text-color">· Fixed: Taps did not generate stars since 1.3.35</p>
+  <p class="whatsnewPar text-color">· Lots of optimizations.</p>
 
-<h2 class="headers header3">Version 1.2.27</h2>
-<p class="change">· Fixed: On rare occasions, the time was not updating when starting the game.</p>
+  <h3 class="text-color-medium">Version 1.3.35</h3>
+  <p class="whatsnewPar text-color">· Automation features now remember their last state after Supremacy.</p>
+  <p class="whatsnewPar text-color">· Added shorter and more specific instructions during the game.</p>
+  <p class="whatsnewPar text-color">· Added a story chapter to indicate the time to perform a first Supremacy.</p>
+  <p class="whatsnewPar text-color">· Fixed: Potential crash while performing a Prestige or Supremacy.</p>
+  <p class="whatsnewPar text-color">· Fixed: After buying all supremacy upgrades, the description would display 'Unlock x9'.</p>
 
-<h2 class="headers header3">Version 1.2.26</h2>
-<p class="change">· Fixed: Stars collected while idling was almost always 0 for short periods of time + removed the star chance limit.</p>
-<p class="change">· Fixed: UI was compressed on smaller screens.</p>
-<p class="change">· The leaderboard score now considers the past supremacies in the count. For example, performing one supremacy (reaching ee200) then ascending to ee50 gives a score of 250.</p>
-<p class="change">· The 25% Prestige reward is now given through exponentiation instead of multiplication, which gives more reward when b is high.</p>
-<p class="change">· Nerfed the 'dt' star bonus, which was too powerful + some minor rebalance.</p>
-<p class="change">· Changed the hardest tapping achievements so it also consider automatic ticks.</p>
+  <h3 class="text-color-medium">Version 1.3.34</h3>
+  <p class="whatsnewPar text-color">· Please refer to 1.3.33 notes for the major update.</p>
+  <p class="whatsnewPar text-color">· Fixed: The Torus puzzle could be played by unlocking the 15-Puzzle.</p>
+  <p class="whatsnewPar text-color">· Fixed: Entry cursor color for black theme.</p>
+  <p class="whatsnewPar text-color">· Fixed: Couldn't tap the equation while holding the accelerator.</p>
+  <p class="whatsnewPar text-color">· Fixed: When Auto-prestige is activated, there was a chance that the supremacy currency is not awarded as shown in the Prestige popup.</p>
+  <p class="whatsnewPar text-color">· Fixed: Minigames were not accessible after purchasing 'Permanent Ad Reward'.</p>
+  <p class="whatsnewPar text-color">· Import/Export of save points.</p>
+          
+  <h3 class="text-color-medium">Version 1.3.33</h3>
+  <p class="whatsnewPar text-color">Major Update: New mechanics, currencies, minigames, and balance.</p>
+  <p class="whatsnewPar text-color">· Important note: The mechanics has changed quite a lot with this update. I have awarded some of the new currencies and stars depending on your previous progress. Please overview the new features before blindly spending the currencies. You should prioritize purchasing variables before automation features. If the Supremacy button appeared in the Prestige menu and your potential supremacy currency ψ is above 1.5, consider performing a Supremacy. If you have any concerns, please contact me via Discord.</p>
+  <p class="whatsnewPar text-color">· New prestige and supremacy currencies. Prestige currency is used to improve regular upgrades, while supremacy upgrades improve the equation itself.</p>
+  <p class="whatsnewPar text-color">· Two minigames have been added to earn stars.</p>
+  <p class="whatsnewPar text-color">· A storyline!</p>
+  <p class="whatsnewPar text-color">· New variables can be purchased with stars, for a total of 29 variables.</p>
+  <p class="whatsnewPar text-color">· New automation features: autobuyers for variables and upgrades, and auto prestige. Can be purchased with stars.</p>
+  <p class="whatsnewPar text-color">· Accelerator button (see instruction).</p>
+  <p class="whatsnewPar text-color">· The Auto-clicker IAP has been removed (buyers will be refunded). This IAP has been replaced by a permanent ad reward.</p>
+  <p class="whatsnewPar text-color">· New dark UI theme.</p>
+  <p class="whatsnewPar text-color">· Smoother progress and balance.</p>
+  <p class="whatsnewPar text-color">· I hope you will enjoy the new content!</p>
 
-<h2 class="headers header3">Version 1.2.25</h2>
-<p class="change">· Fixed: When opening the game twice, there was a chance that the game would not save properly.</p>
-<p class="change">· Fixed: Longpress on a variable/bonus was buying it while it should not.</p>
-<p class="change">· Optimized computation to make the game fluid for high function values.</p>
+  <h3 class="text-color-medium">Version 1.2.31</h3>
+  <p class="whatsnewPar text-color">· Ads: Prestige and Idle bonus have been removed. The only remaining ad source are Rewards, which has been extended to 2 hours and give 50% bonus to dt instead of 25%.</p>
+  <p class="whatsnewPar text-color">· Tap power is now limited to dt=1, regardless of the current dt.</p>
+  <p class="whatsnewPar text-color">· Fixed: Google Play Games was asking to install after a failed sign in.</p>
+  <p class="whatsnewPar text-color">· Fixed: Audio on Android 5.* is disabled for now because it was causing crashes.</p>
 
-<h2 class="headers header3">Version 1.2.24</h2>
-<p class="change">Major Update: Infinite mode. Infinity has been redefined to ee200 for the first supremacy, then pushed ee50 further at every supremacy.</p>
-<p class="change">· The whole game has been rebalanced according to this mode. The progression is now faster and smoother.</p>
-<p class="change">· Leaderboard: You can now compare your progress with other players!</p>
-<p class="change">· More stars are now allocated while idling.</p>
-<p class="change">· Added an Auto Clicker for purchase in the Settings window, which provides 10 ticks per seconds instead of 1 while in-game.</p>
-<p class="change">· See the instruction for more details.</p>
+  <h3 class="text-color-medium">Version 1.2.29</h3>
+  <p class="whatsnewPar text-color">· Fixed: The game would occasionally crash when opening a popup.</p>
+  <p class="whatsnewPar text-color">· Fixed: Number display was sometimes written as 10.000e27 instead of 1.000e28.</p>
 
-<h2 class="headers header3">Version 1.1.20</h2>
-<p class="change">· Fixed an occasional crash source when tapping the equation or buying a variable/upgrade.</p>
+  <h3 class="text-color-medium">Version 1.2.27</h3>
+  <p class="whatsnewPar text-color">· Fixed: On rare occasions, the time was not updating when starting the game.</p>
 
-<h2 class="headers header3">Version 1.1.19</h2>
-<p class="change">· Join us on Discord for feature requests and future releases! Link in the Settings.</p>
-<p class="change">· Buttons to buy variables and upgrades are now multi-touch. Claim your freebies faster!</p>
+  <h3 class="text-color-medium">Version 1.2.26</h3>
+  <p class="whatsnewPar text-color">· Fixed: Stars collected while idling was almost always 0 for short periods of time + removed the star chance limit.</p>
+  <p class="whatsnewPar text-color">· Fixed: UI was compressed on smaller screens.</p>
+  <p class="whatsnewPar text-color">· The leaderboard score now considers the past supremacies in the count. For example, performing one supremacy (reaching ee200) then ascending to ee50 gives a score of 250.</p>
+  <p class="whatsnewPar text-color">· The 25% Prestige reward is now given through exponentiation instead of multiplication, which gives more reward when b is high.</p>
+  <p class="whatsnewPar text-color">· Nerfed the 'dt' star bonus, which was too powerful + some minor rebalance.</p>
+  <p class="whatsnewPar text-color">· Changed the hardest tapping achievements so it also consider automatic ticks.</p>
 
-<h2 class="headers header3">Version 1.1.18</h2>
-<p class="change">· The star bonus for 'dt' has been multiplied by 4 (applied retroactively). This allows for more strategies regarding collecting/farming stars.</p>
-<p class="change">· The cost of the star bonus for 'b' now increases at each level.</p>
-<p class="change">· Some rules for collecting stars have changed. Please refer to the instructions for more details.</p>
-<p class="change">· Some achievements related to rewards are now deactivated. If you already unlocked them, you got to keep the stars you earned.</p>
+  <h3 class="text-color-medium">Version 1.2.25</h3>
+  <p class="whatsnewPar text-color">· Fixed: When opening the game twice, there was a chance that the game would not save properly.</p>
+  <p class="whatsnewPar text-color">· Fixed: Longpress on a variable/bonus was buying it while it should not.</p>
+  <p class="whatsnewPar text-color">· Optimized computation to make the game fluid for high function values.</p>
 
-<h2 class="headers header3">Version 1.1.16</h2>
-<p class="change">· The Prestige bonus is now calculated using the cumulative function value (see statistics) instead of the current. This means that you can now spend your money without affecting your progression towards the next Prestige.</p>
-<p class="change">· Fixed the achievement overlay so that it displays all unlocked achievement that happens in a short period of time.</p>
+  <h3 class="text-color-medium">Version 1.2.24</h3>
+  <p class="whatsnewPar text-color">Major Update: Infinite mode. Infinity has been redefined to ee200 for the first supremacy, then pushed ee50 further at every supremacy.</p>
+  <p class="whatsnewPar text-color">· The whole game has been rebalanced according to this mode. The progression is now faster and smoother.</p>
+  <p class="whatsnewPar text-color">· Leaderboard: You can now compare your progress with other players!</p>
+  <p class="whatsnewPar text-color">· More stars are now allocated while idling.</p>
+  <p class="whatsnewPar text-color">· Added an Auto Clicker for purchase in the Settings window, which provides 10 ticks per seconds instead of 1 while in-game.</p>
+  <p class="whatsnewPar text-color">· See the instruction for more details.</p>
 
-<h2 class="headers header3">Version 1.1.15</h2>
-<p class="change">Major Update: You can now use your Stars to get permanent upgrades and perform Supremacy (meta prestige) when you reach infinity. Refer to the intructions for more details.</p>
-<p class="change">· Added related achievements.</p>
-<p class="change">· Changed the double logarithmic notation from ee1 to ee3.</p>
-<p class="change">· Added auto-save every minute as a fail-safe.</p>
+  <h3 class="text-color-medium">Version 1.1.20</h3>
+  <p class="whatsnewPar text-color">· Fixed an occasional crash source when tapping the equation or buying a variable/upgrade.</p>
 
-<h2 class="headers header3">Version 1.0.13</h2>
-<p class="change">· Renamed the 't' variable to avoid confusion.</p>
-<p class="change">· Fine-tuned the cost of upgrades.</p>
+  <h3 class="text-color-medium">Version 1.1.19</h3>
+  <p class="whatsnewPar text-color">· Join us on Discord for feature requests and future releases! Link in the Settings.</p>
+  <p class="whatsnewPar text-color">· Buttons to buy variables and upgrades are now multi-touch. Claim your freebies faster!</p>
 
-<h2 class="headers header3">Version 1.0.12</h2>
-<p class="change">· Added the ending sequence.</p>
-<p class="change">· Added a 'What's New' popup for new versions.</p>
-<p class="change">· Fixed occasional crash when tapping the equation.</p>
+  <h3 class="text-color-medium">Version 1.1.18</h3>
+  <p class="whatsnewPar text-color">· The star bonus for 'dt' has been multiplied by 4 (applied retroactively). This allows for more strategies regarding collecting/farming stars.</p>
+  <p class="whatsnewPar text-color">· The cost of the star bonus for 'b' now increases at each level.</p>
+  <p class="whatsnewPar text-color">· Some rules for collecting stars have changed. Please refer to the instructions for more details.</p>
+  <p class="whatsnewPar text-color">· Some achievements related to rewards are now deactivated. If you already unlocked them, you got to keep the stars you earned.</p>
 
-<h2 class="headers header3">Version 1.0.11</h2>
-<p class="change">· Display the current 'x' value in the navigation bar.</p>
+  <h3 class="text-color-medium">Version 1.1.16</h3>
+  <p class="whatsnewPar text-color">· The Prestige bonus is now calculated using the cumulative function value (see statistics) instead of the current. This means that you can now spend your money without affecting your progression towards the next Prestige.</p>
+  <p class="whatsnewPar text-color">· Fixed the achievement overlay so that it displays all unlocked achievement that happens in a short period of time.</p>
 
-<h2 class="headers header3">Version 1.0.10</h2>
-<p class="change">· Improved tap events on the main equation.</p>
-<p class="change">· Simultaneous tap are now registered correctly.</p>
+  <h3 class="text-color-medium">Version 1.1.15</h3>
+  <p class="whatsnewPar text-color">Major Update: You can now use your Stars to get permanent upgrades and perform Supremacy (meta prestige) when you reach infinity. Refer to the intructions for more details.</p>
+  <p class="whatsnewPar text-color">· Added related achievements.</p>
+  <p class="whatsnewPar text-color">· Changed the double logarithmic notation from ee1 to ee3.</p>
+  <p class="whatsnewPar text-color">· Added auto-save every minute as a fail-safe.</p>
 
-<h2 class="headers header3">Version 1.0.9</h2>
-<p class="change">· Fixed: Scaling issues on some devices with different pixel density.</p>
+  <h3 class="text-color-medium">Version 1.0.13</h3>
+  <p class="whatsnewPar text-color">· Renamed the 't' variable to avoid confusion.</p>
+  <p class="whatsnewPar text-color">· Fine-tuned the cost of upgrades.</p>
 
-<h2 class="headers header3">Version 1.0.8</h2>
-<p class="change">· Added the prestige bonus to the main screen.</p>
-<p class="change">· Fixed: Time did not start when the app was put to sleep during splash screen.</p>
+  <h3 class="text-color-medium">Version 1.0.12</h3>
+  <p class="whatsnewPar text-color">· Added the ending sequence.</p>
+  <p class="whatsnewPar text-color">· Added a 'What's New' popup for new versions.</p>
+  <p class="whatsnewPar text-color">· Fixed occasional crash when tapping the equation.</p>
 
-<h2 class="headers header3">Version 1.0.7</h2>
-<p class="change">· No battery usage when the app is sleeping. Improved balance</p>
+  <h3 class="text-color-medium">Version 1.0.11</h3>
+  <p class="whatsnewPar text-color">· Display the current 'x' value in the navigation bar.</p>
 
-<h2 class="headers header3">Version 1.0.6</h2>
-<p class="change">Initial Release</p>
+  <h3 class="text-color-medium">Version 1.0.10</h3>
+  <p class="whatsnewPar text-color">· Improved tap events on the main equation.</p>
+  <p class="whatsnewPar text-color">· Simultaneous tap are now registered correctly.</p>
+
+  <h3 class="text-color-medium">Version 1.0.9</h3>
+  <p class="whatsnewPar text-color">· Fixed: Scaling issues on some devices with different pixel density.</p>
+
+  <h3 class="text-color-medium">Version 1.0.8</h3>
+  <p class="whatsnewPar text-color">· Added the prestige bonus to the main screen.</p>
+  <p class="whatsnewPar text-color">· Fixed: Time did not start when the app was put to sleep during splash screen.</p>
+
+  <h3 class="text-color-medium">Version 1.0.7</h3>
+  <p class="whatsnewPar text-color">· No battery usage when the app is sleeping. Improved balance</p>
+
+  <h3 class="text-color-medium">Version 1.0.6</h3>
+  <p class="whatsnewPar text-color">Initial Release</p>
+</div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-center w3-opacity color-light w3-medium">
+  <p class="w3-opacity w3-center" style="margin:4px">© 2020 Conic Games</p>
+</footer>
+
 </body>
+
+<script src='js/script.js'></script>
 
 </html>
