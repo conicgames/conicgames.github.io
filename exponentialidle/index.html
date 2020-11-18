@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -14,19 +15,6 @@
     <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
-    <style>
-        body {font-family: "Lato", sans-serif; background-color: #222}
-        html, body {height: 100%}
-        .mySlides {display: none}
-        .text-color {color: #ccc;}
-        .text-bold {font-weight: bolder;}
-        .color-dark {background-color:#222; color: #ccc;}
-        .color-medium {background-color:#2f2f2f; color: #ccc;}
-        .color-light {background-color:#333; color: #ccc;}
-        .color-very-light {background-color:#444; color: #ccc;}
-        .top-images {height: calc(100vh - 46px); box-shadow: 0px 0px 6px #000;}
-        .icon-color {color: #fff}
-    </style>
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </head>
 <body>
@@ -34,20 +22,24 @@
 <!-- Navbar -->
 <div class="w3-top">
   <div class="w3-bar color-medium w3-card">
-    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="toggleMenu()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <img class="w3-bar-item" height="46" alt='' src='assets/logo.png'/>
     <a href="#" class="w3-bar-item w3-button w3-padding-large text-bold">Exponential Idle</a>
     <a href="#screenshots" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Screenshots</a>
     <a href="#download" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Download</a>
+    <a href="whatsnew.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">What's New</a>
+    <a href="privacypolicy.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Privacy Policy</a>
     <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Contact</a>
   </div>
 </div>
 
 <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
 <div id="navDemo" class="w3-bar-block color-light w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-  <a href="#screenshots" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Screenshots</a>
-  <a href="#download" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Download</a>
-  <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Contact</a>
+  <a href="#screenshots" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">Screenshots</a>
+  <a href="#download" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">Download</a>
+  <a href="whatsnew.html" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">What's New</a>
+  <a href="privacypolicy.html" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">Privacy Policy</a>
+  <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">Contact</a>
 </div>
 
 <!-- Page content -->
@@ -62,14 +54,14 @@
 
   <!-- Screenshots -->
   <div class="w3-content w3-display-container w3-padding-48" id="screenshots">
-    <div class="mySlides w3-display-container w3-center"> <img class="top-images" src="assets/Screenshot 6.5.1.png"> </div>
-    <div class="mySlides w3-display-container w3-center"> <img class="top-images" src="assets/Screenshot 6.5.2.png"> </div>
-    <div class="mySlides w3-display-container w3-center"> <img class="top-images" src="assets/Screenshot 6.5.3.png"> </div>
-    <div class="mySlides w3-display-container w3-center"> <img class="top-images" src="assets/Screenshot 6.5.4.png"> </div>
-    <div class="mySlides w3-display-container w3-center"> <img class="top-images" src="assets/Screenshot 6.5.5.png"> </div>
-    <div class="mySlides w3-display-container w3-center"> <img class="top-images" src="assets/Screenshot 6.5.6.png"> </div>
-    <div class="mySlides w3-display-container w3-center"> <img class="top-images" src="assets/Screenshot 6.5.7.png"> </div>
-    <div class="mySlides w3-display-container w3-center"> <img class="top-images" src="assets/Screenshot 6.5.8.png"> </div>
+    <div class="screenshots w3-display-container w3-center"> <img class="top-images" src="assets/Screenshot 6.5.1.png"> </div>
+    <div class="screenshots w3-display-container w3-center"> <img class="top-images" src="assets/Screenshot 6.5.2.png"> </div>
+    <div class="screenshots w3-display-container w3-center"> <img class="top-images" src="assets/Screenshot 6.5.3.png"> </div>
+    <div class="screenshots w3-display-container w3-center"> <img class="top-images" src="assets/Screenshot 6.5.4.png"> </div>
+    <div class="screenshots w3-display-container w3-center"> <img class="top-images" src="assets/Screenshot 6.5.5.png"> </div>
+    <div class="screenshots w3-display-container w3-center"> <img class="top-images" src="assets/Screenshot 6.5.6.png"> </div>
+    <div class="screenshots w3-display-container w3-center"> <img class="top-images" src="assets/Screenshot 6.5.7.png"> </div>
+    <div class="screenshots w3-display-container w3-center"> <img class="top-images" src="assets/Screenshot 6.5.8.png"> </div>
     
     <button class="w3-button w3-dark-gray w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
     <button class="w3-button w3-dark-gray w3-display-right" onclick="plusDivs(1)">&#10095;</button>
@@ -106,59 +98,7 @@
   <p class="w3-opacity w3-center" style="margin:4px">© 2020 Conic Games</p>
 </footer>
 
-<script>
-// Automatic Slideshow - change image every 4 seconds
-var myIndex = 0;
-carousel();
-
-function carousel() {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";  
-  }
-  myIndex++;
-  if (myIndex > x.length) {myIndex = 1}    
-  x[myIndex-1].style.display = "block";  
-  setTimeout(carousel, 4000);    
-}
-
-// Used to toggle the menu on small screens when clicking on the menu button
-function myFunction() {
-  var x = document.getElementById("navDemo");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-// When the user clicks anywhere outside of the modal, close it
-var modal = document.getElementById('ticketModal');
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-
-var slideIndex = 1;
-showDivs(slideIndex);
-
-function plusDivs(n) {
-  showDivs(slideIndex += n);
-}
-
-function showDivs(n) {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  if (n > x.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = x.length}
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";  
-  }
-  x[slideIndex-1].style.display = "block";  
-}
-</script>
+<script src='js/script.js'></script>
 
 </body>
 </html>

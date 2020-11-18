@@ -1,0 +1,16 @@
+body {font-family: "Lato", sans-serif; background-color: #222}
+html, body {height: 100%}
+.mySlides {display: none}
+.text-color {color: #ccc;}
+.text-color-medium {color: #888;}
+.text-bold {font-weight: bolder;}
+.color-dark {background-color:#222; color: #ccc;}
+.color-medium {background-color:#2f2f2f; color: #ccc;}
+.color-light {background-color:#333; color: #ccc;}
+.color-very-light {background-color:#444; color: #ccc;}
+.top-images {height: calc(100vh - 46px); box-shadow: 0px 0px 6px #000;}
+.icon-color {color: #fff}
+.whatsnewPar {text-align: left; padding-left: 1.5%; text-indent: -1.5%; margin: 0;}
+.privacyPar {text-align: left;}
+.privacyBullet {text-align: left;}
+.ios {content:"iOS Only"}
