@@ -1,88 +1,59 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-<meta charset="utf-8"/>
-<style>
-    @font-face {
-        font-family: roboto-bold;
-        src: url(Roboto-Bold.ttf);
-    }
-    @font-face {
-        font-family: roboto-regular;
-        src: url(Roboto-Regular.ttf);
-    }
-    body {
-        background-color: #2F2F2F;
-    }
-    .headers {
-        color: #ccc;
-        text-align: center;
-        margin: 0;
-    }
-    .header1 {
-        font-size: 48px;
-        font-family: roboto-bold, Verdana, Geneva, sans-serif;
-        margin-top: 50px;
-        margin-bottom: 10px;
-    }
-    .header2 {
-        color: #888;
-        font-size: 22px;
-        font-family: roboto-regular, Verdana, Geneva, sans-serif;
-        margin-top: 10px;
-        margin-bottom: 20px;
-    }
-    p {
-        color: #ccc;
-        font-family: roboto-regular, Verdana, Geneva, sans-serif;
-        font-size: 16px;
-        margin: auto;
-        margin-bottom: 20px;
-        width: 50%;
-    }
-    textarea {
-        background-color: #444;
-        color: #ccc;
-        display: block;
-        margin: auto;
-        margin-bottom: 10px;
-        border: 1px solid #ccc;
-        width: 50%;
-        resize: none;
-        font-family: roboto-regular, Verdana, Geneva, sans-serif;
-    }
-    #buttons {
-        display: block;
-        margin: auto;
-        width: 50%;
-    }
-    button {
-        display: block;
-        width: 50%;
-        margin: auto;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        background-color: #333;
-        border: 1px solid #ccc;
-        color: #ccc;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        font-size: 16px;
-        cursor: pointer;
-    }
-</style>
+    <title>Exponential Idle</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/ico" href="assets/favicon/favicon.ico">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </head>
 
 <body>
-<h1 class="headers header1">Exponential Idle</h1>
-<h1 class="headers header2">BlueStacks Import Tool</h1>
-<p>BlueStacks has some limitations regarding clipboard size. To avoid it, we developed a tool that lets you paste a save and copy it part by part. From the host OS, paste your save in the text area below. After pasting, buttons will appear. Click on the first button, then paste it in the import text field in Exponential Idle. Repeat this step until you pasted all parts.</p>
-<textarea id="save" rows="10" oninput="onSavePasted()" placeholder="Paste your save here" spellcheck="false"></textarea>
+<div class="w3-top">
+  <div class="w3-bar color-medium w3-card">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="toggleMenu()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <img class="w3-bar-item" height="46" alt='' src='assets/images/logo.png'/>
+    <a href="index.html#" class="w3-bar-item w3-button w3-padding-large text-bold">Exponential Idle</a>
+    <a href="index.html#screenshots" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Screenshots</a>
+    <a href="index.html#download" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Download</a>
+    <a href="whatsnew.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">What's New</a>
+    <a href="privacypolicy.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Privacy Policy</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hide-small">BlueStacks</a>
+    <a href="index.html#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Contact</a>
+  </div>
+</div>
 
-<div id="buttons" height="50"></div>
+<div id="navDemo" class="w3-bar-block color-light w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+  <a href="index.html#screenshots" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">Screenshots</a>
+  <a href="index.html#download" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">Download</a>
+  <a href="whatsnew.html" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">What's New</a>
+  <a href="privacypolici.html" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">Privacy Policy</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">BlueStacks</a>
+  <a href="index.html#contact" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">Contact</a>
+</div>
 
+<div class="w3-content" style="max-width:2000px;margin-top:46px">
+<div class="w3-container w3-content w3-center w3-padding-16" style="max-width:800px">
+
+  <h1 class="text-color text-bold">BlueStacks Import Tool</h1>
+  <p class="bluestacks-par text-color">BlueStacks has some limitations regarding clipboard size. To avoid it, we developed a tool that lets you paste a save and copy it part by part. From the host OS, paste your save in the text area below. After pasting, buttons will appear. Click on the first button, then paste it in the import text field in Exponential Idle. Repeat this step until you pasted all parts.</p>
+  <textarea class="color-medium bluestacks-textarea" id="save" rows="10" oninput="onSavePasted()" placeholder="Paste your save here" spellcheck="false"></textarea>
+
+  <div id="buttons" height="50"></div>
+</div>
+</div>
+
+<script src='js/script.js'></script>
 <script>
 function onSavePasted()
 {
@@ -103,6 +74,8 @@ function onSavePasted()
         {
             let index = i;
             let button = document.createElement("button");
+            button.classList.add("bluestacks-button");
+            button.classList.add("color-light");
             button.innerHTML = getButtonLabel(i);
             button.onclick = _ => 
             {
@@ -120,6 +93,7 @@ function onSavePasted()
     catch(e)
     {
         let error = document.createElement("p");
+        error.classList.add("text-color");
         error.innerHTML = "The pasted text does not appear to be a valid save.";
         buttons.appendChild(error);
     }
