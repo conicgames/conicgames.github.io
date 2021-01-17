@@ -124,7 +124,10 @@ function setOnEnter(elementName, action) {
 
 window.onload = function() {
     setOnEnter("ft", () => _("stars").focus());
-    setOnEnter("stars", () => _("distribute").click());
+    setOnEnter("stars", () => {
+        _("stars").blur();
+        _("distribute").click();
+    });
 }
 </script>
 
