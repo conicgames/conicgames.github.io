@@ -15,7 +15,7 @@ html, body {height: 100%}
 .privacy-par {text-align: left;}
 .privacy-bullet {text-align: left;}
 .bluestacks-par, .stars-par {text-align: left;}
-.bluestacks-textarea, .stars-textarea {display: block; margin: auto; border: 1px solid #444; width: 100%; resize: none; margin-bottom: 2%;}
+.bluestacks-textarea, .stars-input {display: block; margin: auto; border: 1px solid #444; width: 100%; resize: none; margin-bottom: 2%; outline: none;}
 .bluestacks-buttons {display: block; margin: auto; width: 100%;}
 .bluestacks-button, .stars-button {
   display: block;

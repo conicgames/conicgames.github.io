@@ -61,8 +61,8 @@
   <h3 class="text-color-medium">Instructions</h3>
   <p class="stars-par text-color">For f(t), type the number after ee. Use the price of the next cheapest f(t) purchase. Make sure you have purchased all variables and upgrades that cost less than this input.</p>
   <p class="stars-par text-color">For stars, make sure this is the number of stars you can spend only on permanent levels, i.e., excluding variable and automation purchases.</p>
-  <textarea class="color-medium stars-textarea" id="ft" rows="1" placeholder="Your f(t) here!" spellcheck="false"></textarea>
-  <textarea class="color-medium stars-textarea" id="stars" rows="1" placeholder="Your stars here!" spellcheck="false"></textarea>
+  <input class="color-medium stars-input" id="ft" rows="1" placeholder="Your f(t) here!" spellcheck="false"></textarea>
+  <input class="color-medium stars-input" id="stars" rows="1" placeholder="Your stars here!" spellcheck="false"></textarea>
 
   <div id="buttons" height="50">
     <button class="stars-button color-light" onclick="distribute()">Distribute!</button>
@@ -83,20 +83,25 @@ function setVisibility(elementName, isVisible) {
 async function distribute() {
     let ft = parseInt(document.getElementById("ft").value);
     let stars = parseInt(document.getElementById("stars").value);
-    let isFtValid = !isNaN(ft);
-    let isStarsValid = !isNaN(stars);
+    let isFtValid = !isNaN(ft) && ft > 0;
+    let isStarsValid = !isNaN(stars) && stars > 0;
     
     setVisibility("result", false);
+    setVisibility("request-error", false);
     setVisibility("ft-error", !isFtValid);
     setVisibility("stars-error", !isStarsValid);
     
     if (isFtValid && isStarsValid)
     {
         setVisibility("loader", true);
-        let image = await optimalStars(ft, stars);
-        document.getElementById("result").innerHTML = "<img class=\"stars-result-image\" src=\"" + image + "\">";
+        try {
+            let image = await optimalStars(ft, stars);
+            document.getElementById("result").innerHTML = "<img class=\"stars-result-image\" src=\"" + image + "\">";
+            setVisibility("result", true);
+        } catch {
+            setVisibility("request-error", true);
+        }
         setVisibility("loader", false);
-        setVisibility("result", true);
     }
 }
 </script>
