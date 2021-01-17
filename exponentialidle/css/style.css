@@ -30,6 +30,16 @@ html, body {height: 100%}
   cursor: pointer;
   outline: none;
 }
+.stars-button:disabled {
+    color: #777;
+    background-color: #282828;
+}
+.stars-button:hover:enabled {
+    background-color: #383838;
+}
+.stars-input:hover {
+    background-color: #383838;
+}
 .stars-error {text-align: center;} 
 .stars-result-image {width: 100%; margin-top: 10px;}
 .ios {content:"iOS Only"}
