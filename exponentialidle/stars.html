@@ -64,7 +64,7 @@
   <input class="color-medium stars-input" id="stars" rows="1" placeholder="Your stars here!" spellcheck="false"></textarea>
 
   <div id="buttons" height="50">
-    <button class="stars-button color-light" onclick="distribute()">Distribute!</button>
+    <button id="distribute" class="stars-button color-light" onclick="distribute()">Distribute!</button>
   </div>
   <p id="ft-error" class="stars-error text-color" style="display: none">Error: Invalid f(t)</p>
   <p id="stars-error" class="stars-error text-color" style="display: none">Error: Invalid stars</p>
@@ -76,12 +76,17 @@
 
 <script src='js/script.js'></script>
 <script>
-function setVisibility(elementName, isVisible) {
-    document.getElementById(elementName).style.display = isVisible ? "block" : "none";
+function _(elementName) {
+    return document.getElementById(elementName);
 }
+
+function setVisibility(elementName, isVisible) {
+    _(elementName).style.display = isVisible ? "block" : "none";
+}
+
 async function distribute() {
-    let ft = parseInt(document.getElementById("ft").value);
-    let stars = parseInt(document.getElementById("stars").value);
+    let ft = parseInt(_("ft").value);
+    let stars = parseInt(_("stars").value);
     let isFtValid = !isNaN(ft) && ft > 0;
     let isStarsValid = !isNaN(stars) && stars > 0;
     
@@ -92,16 +97,35 @@ async function distribute() {
     
     if (isFtValid && isStarsValid)
     {
+        _("distribute").disabled = true;
         setVisibility("loader", true);
+        
         try {
             let image = await optimalStars(ft, stars);
-            document.getElementById("result").innerHTML = "<img class=\"stars-result-image\" src=\"" + image + "\">";
+            _("result").innerHTML = "<img class=\"stars-result-image\" src=\"" + image + "\">";
             setVisibility("result", true);
         } catch {
             setVisibility("request-error", true);
         }
-        setVisibility("loader", false);
+        
+        setVisibility("loader", false)
+        _("distribute").disabled = false;;
     }
+}
+
+window.onload = function() {
+    _("ft").addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            _("stars").focus();
+        }
+    });
+    _("stars").addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            _("distribute").click();
+        }
+    });
 }
 </script>
 
