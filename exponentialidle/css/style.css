@@ -29,7 +29,7 @@ html, body {height: 100%}
   text-decoration: none;
   cursor: pointer;
 }
-.stars-error {text-align: center;}
+.stars-error {text-align: center;} 
 .stars-result-image {width: 100%; margin-top: 10px;}
 .ios {content:"iOS Only"}
 .loader {
