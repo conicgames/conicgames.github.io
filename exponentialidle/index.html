@@ -107,10 +107,45 @@
 
 <!-- Footer -->
 <footer class="w3-container w3-center w3-opacity color-light w3-medium">
-  <p class="w3-opacity w3-center" style="margin:4px">© 2020 Conic Games</p>
+  <p class="w3-opacity w3-center" style="margin:4px">© 2021 Conic Games</p>
 </footer>
 
 <script src='js/script.js'></script>
+<script>
+// Automatic Slideshow - change image every 4 seconds
+var carouselIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("screenshots");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  carouselIndex++;
+  if (carouselIndex > x.length) {carouselIndex = 1}    
+  x[carouselIndex-1].style.display = "block";  
+  setTimeout(carousel, 4000);    
+}
+
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("screenshots");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";  
+}
+</script>
 
 </body>
 </html>

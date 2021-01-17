@@ -113,19 +113,18 @@ async function distribute() {
     }
 }
 
+function setOnEnter(elementName, action) {
+    _(elementName).addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            action();
+        }
+    });
+}
+
 window.onload = function() {
-    _("ft").addEventListener("keyup", function(event) {
-        if (event.keyCode === 13) {
-            event.preventDefault();
-            _("stars").focus();
-        }
-    });
-    _("stars").addEventListener("keyup", function(event) {
-        if (event.keyCode === 13) {
-            event.preventDefault();
-            _("distribute").click();
-        }
-    });
+    setOnEnter("ft", () => _("stars").focus());
+    setOnEnter("stars", () => _("distribute").click());
 }
 </script>
 
