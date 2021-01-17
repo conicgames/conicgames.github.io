@@ -2,6 +2,7 @@ body {font-family: "Lato", sans-serif; background-color: #222}
 html, body {height: 100%}
 .screenshots {display: none}
 .text-color {color: #ccc;}
+.text-color-light {color: #999;}
 .text-color-medium {color: #888;}
 .text-bold {font-weight: bolder;}
 .color-dark {background-color:#222; color: #ccc;}
@@ -13,10 +14,10 @@ html, body {height: 100%}
 .whatsnew-par {text-align: left; padding-left: 1.5%; text-indent: -1.5%; margin: 0;}
 .privacy-par {text-align: left;}
 .privacy-bullet {text-align: left;}
-.bluestacks-par {text-align: left;}
-.bluestacks-textarea {display: block; margin: auto; border: 1px solid #444; width: 100%; resize: none; margin-bottom: 2%;}
+.bluestacks-par, .stars-par {text-align: left;}
+.bluestacks-textarea, .stars-textarea {display: block; margin: auto; border: 1px solid #444; width: 100%; resize: none; margin-bottom: 2%;}
 .bluestacks-buttons {display: block; margin: auto; width: 100%;}
-.bluestacks-button {
+.bluestacks-button, .stars-button {
   display: block;
   width: 100%;
   margin: auto;
@@ -28,4 +29,21 @@ html, body {height: 100%}
   text-decoration: none;
   cursor: pointer;
 }
+.stars-error {text-align: center;}
+.stars-result-image {width: 100%; margin-top: 10px;}
 .ios {content:"iOS Only"}
+.loader {
+  border: 8px solid #444; /* Light grey */
+  border-top: 8px solid #ccc; /* Blue */
+  border-radius: 50%;
+  margin: auto;
+  margin-top: 10px;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
