@@ -72,7 +72,7 @@ function drawTile(num, x, y){
     let alpha = 255;
     if (x < 0 || y < 0 || x >= size || y >= size)
         alpha = 50;
-    intensity = 25 + 128 * num / (size*size)
+    intensity = 25 + 128 * num / mod
     fill(intensity,intensity,intensity, alpha);
     
     let exactX = zero + tileSize*x;
