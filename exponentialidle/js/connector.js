@@ -117,6 +117,7 @@ function processRequest(request, resolve, reject){
 }
 
 async function optimalStars(ft, stars){
+    let date1 = new Date();
     if(header === null){
         let calculatordata = await fetch("https://raw.githubusercontent.com/1ekf/ExidleStars/main/Calculator.wls");
         let headerdata = await fetch("https://raw.githubusercontent.com/1ekf/ExidleStars/main/header.txt");
@@ -134,6 +135,9 @@ async function optimalStars(ft, stars){
         if (footertxt === null) throw "";
         footer = footertxt;    
     }
+    
+    let date2 = new Date();
+    console.log(date2.getTime() - date1.getTime());
     
     return new Promise(function (resolve, reject) {
         let runRequest = new XMLHttpRequest();
