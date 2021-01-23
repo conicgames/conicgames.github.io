@@ -122,15 +122,12 @@ function checkClick(){
 
 function doSwap(x, y){
     let n = size - 1;
-    if (x > 0) swapNumbers(x-1,y);
-    if (x < n) swapNumbers(x+1,y);
-    if (y > 0) swapNumbers(x,y-1);
-    if (y < n) swapNumbers(x,y+1);
-    if (x > 0 && y > 0) swapNumbers(x-1,y-1);
-    if (x < n && y > 0) swapNumbers(x+1,y-1);
-    if (x > 0 && y < n) swapNumbers(x-1,y+1);
-    if (x < n && y < n) swapNumbers(x+1,y+1);
-    swapNumbers(x,y);
+    if (x < n && y < n) {
+        swapNumbers(x+1,y);
+        swapNumbers(x,y+1);
+        swapNumbers(x+1,y+1);
+        swapNumbers(x,y);
+    }
 }
 
 //return true if x,y in rect position rx ry size w*h
