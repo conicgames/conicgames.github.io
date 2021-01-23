@@ -140,13 +140,22 @@ function mousePressed(){
     checkClick();
 }
 
+function getRandomInt(min, max) {
+    return min + int(Math.floor(Math.random() * (max - min)));
+}
+
 function shuffleNumbers() {
-    let top = numbers.length;
-    if(top){
-        while(--top) {
-            let current = int(Math.floor(Math.random() * top));
-            doSwap(linToX(current), linToY(current))
+    for (let i = 0; i < size; ++i) {
+        for (let j = 0; j < size; ++j) {
+            let kmax = getRandomInt(0, mod);
+            for (let k = 0; k < kmax; ++k) {
+                doSwap(i, j);
+            }
         }
+    }
+    
+    for (let i = 0; i < size * size * mod; ++i) {
+        doSwap(getRandomInt(0, size), getRandomInt(0, size));
     }
 }
 
