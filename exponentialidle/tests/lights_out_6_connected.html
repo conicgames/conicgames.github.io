@@ -81,9 +81,9 @@ function drawTile(num, x, y){
     
     let relX = x - (size-y)*0.5;
     let exactX = zero + tileSize*relX;
-    let exactY = zero + tileSize*y;
-     
-    rect(exactX,exactY,tileSize,tileSize, cornersConst);
+    let exactY = zero + tileSize*y*0.87;
+    
+    circle(exactX+tileSize/2,exactY+tileSize/2,tileSize);
     textSize(tileSize/4);
     fill(255,255,255); 
     text(num, exactX+tileSize/2, exactY+tileSize/2);
