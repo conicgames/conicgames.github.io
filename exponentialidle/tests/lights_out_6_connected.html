@@ -156,6 +156,8 @@ function shuffleNumbers() {
     let sizer = size*2+1;
     for (let i = 0; i < sizer; ++i) {
         for (let j = 0; j < sizer; ++j) {
+            if (x-size+y < 0 || x+(y-size) > size*2)
+                continue;
             let kmax = getRandomInt(0, mod);
             for (let k = 0; k < kmax; ++k) {
                 doSwap(i, j);
@@ -164,7 +166,11 @@ function shuffleNumbers() {
     }
     
     for (let i = 0; i < sizer * sizer * mod; ++i) {
-        doSwap(getRandomInt(0, size), getRandomInt(0, size));
+        let x = getRandomInt(0, size);
+        let y = getRandomInt(0, size);
+        if (x-size+y < 0 || x+(y-size) > size*2)
+            continue;
+        doSwap(x, y);
     }
 }
 
