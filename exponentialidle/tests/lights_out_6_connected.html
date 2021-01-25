@@ -120,7 +120,7 @@ function checkClick(){
     let sizer = 2*size + 1;
     if(inRect(mouseX, mouseY, zero, zero, tileSize*sizer, tileSize*sizer)){
         //in board
-        let y = int(floor((mouseY-zero)/tileSize));
+        let y = int(floor((mouseY-zero)/(tileSize*0.87)));
         let x = int(floor((mouseX-zero)/tileSize + (size-y)*0.5));
         if (!checkBounds(x,y))
             return;
