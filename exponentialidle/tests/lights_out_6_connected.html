@@ -71,7 +71,7 @@ function newGame(){
 //draw tile with number num, position x, y, where x and y are 0..N-1 positions, not the exact coordinats
 function drawTile(num, x, y){
     let sizer = size*2+1;
-    if (x-size+y < 0 || x+(y-size) > size*2)
+    if (!checkBounds(x,y))
         return;
     let alpha = 255;
     if (x < 0 || y < 0 || x >= sizer || y >= sizer)
@@ -122,7 +122,7 @@ function checkClick(){
         //in board
         let y = int(floor((mouseY-zero)/tileSize));
         let x = int(floor((mouseX-zero)/tileSize + (size-y)*0.5));
-        if (x-size+y < 0 || x+(y-size) > size*2)
+        if (!checkBounds(x,y))
             return;
         doSwap(x, y);
     }
@@ -146,6 +146,17 @@ function inRect(x,y, rx, ry, w, h){
     return (mNormX >= 0 && mNormY >= 0 && mNormX <= w && mNormY <= h)
 }
 
+function checkBounds(x,y) {
+    let sizer = size*2+1;
+    if (x < 0 || x >= sizer)
+        return false;
+    if (y < 0 || y >= sizer)
+        return false;
+    if (x-size+y < 0 || x+(y-size) > size*2)
+        return false;
+    return true;
+}
+
 function mousePressed(){
     checkClick();
 }
@@ -158,7 +169,7 @@ function shuffleNumbers() {
     let sizer = size*2+1;
     for (let i = 0; i < sizer; ++i) {
         for (let j = 0; j < sizer; ++j) {
-            if (i-size+j < 0 || i+(j-size) > size*2)
+            if (!checkBounds(i,j))
                 continue;
             let kmax = getRandomInt(0, mod);
             for (let k = 0; k < kmax; ++k) {
@@ -170,7 +181,7 @@ function shuffleNumbers() {
     for (let i = 0; i < sizer * sizer * mod; ++i) {
         let x = getRandomInt(0, size);
         let y = getRandomInt(0, size);
-        if (x-size+y < 0 || x+(y-size) > size*2)
+        if (!checkBounds(x,y))
             continue;
         doSwap(x, y);
     }
