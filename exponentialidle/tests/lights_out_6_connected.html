@@ -122,6 +122,8 @@ function checkClick(){
         //in board
         let y = int(floor((mouseY-zero)/tileSize));
         let x = int(floor((mouseX-zero)/tileSize + (size-y)*0.5));
+        if (x-size+y < 0 || x+(y-size) > size*2)
+            return;
         doSwap(x, y);
     }
 }
