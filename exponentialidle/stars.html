@@ -85,7 +85,7 @@ function setVisibility(elementName, isVisible) {
 }
 
 async function distribute() {
-    let ft = parseInt(_("ft").value);
+    let ft = parseFloat(_("ft").value);
     let stars = parseInt(_("stars").value);
     let isFtValid = !isNaN(ft) && ft > 0;
     let isStarsValid = !isNaN(stars) && stars > 0;
