@@ -44,7 +44,6 @@ function draw() {
     textStyle(NORMAL);
     fill(0,0,0); 
     text("space to reset, 2-9 to change size, click to play",400,100);
-    text("Arrows to change mod. mod " + mod,400,140);
     text("Based on dphdmn's implementation",400,750);
     for (let i = 0 ; i < size; ++i){
         for (let j = 0 ; j < size; ++j){
@@ -82,28 +81,6 @@ function drawTile(num, x, y){
     textSize(tileSize/4);
     fill(255,255,255); 
     text(num, exactX+tileSize/2, exactY+tileSize/2);
-}
-
-function keyPressed(){
-    if (key == ' '){
-        newGame();
-    }
-    if (key >= 2 && key <= 9){
-        size = parseInt(key);
-        newGame();
-    }
-    
-    if (key == "ArrowLeft" && mod > 2)
-    {
-        mod--;
-        newGame();
-    }
-    
-    if (key == "ArrowRight" && mod < 100)
-    {
-        mod++;
-        newGame();
-    }
 }
 
 function swapNumbers(x, y){
