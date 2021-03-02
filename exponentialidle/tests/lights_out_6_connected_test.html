@@ -36,6 +36,59 @@ function setup() {
     newGame();
 }
 
+function doTestDumbSolves() {
+    let sizer = 2*size+1;
+    let total = 0;
+    let solved = 0;
+    for (let i = 0; i < 1000000; ++i) {
+        shuffleNumbers();
+        for (let r = 0; r < sizer; ++r) {
+            for (let c = 0; c < sizer; ++c) {
+                if (checkBounds(r-1, c) && checkBounds(r, c)) {
+                    while (numbers[XYtolin(r-1,c)] != 0)
+                        doSwap(r,c);
+                }
+            }
+        }
+        let isSolved = true;
+        for (let r = 0; r < sizer; ++r) {
+            for (let c = 0; c < sizer; ++c) {
+                if (checkBounds(r, c)) {
+                    if (numbers[XYtolin(r-1,c)] != 0)
+                        isSolved = false;
+                }
+            }
+        }
+        if (isSolved) solved++;
+        total++;
+    }
+    console.log(solved/total);
+}
+
+function dumbSolve() {
+    let c = 0;
+    let r = 0;
+    let sizer = 2*size+1;
+    let inBounds = function(i, j) {return checkBounds(i-1, j) && checkBounds(i, j);}
+    let timer = setInterval(function() {
+        if (inBounds(r,c))
+            if (numbers[XYtolin(r-1,c)] != 0)
+                doSwap(r,c);
+                
+        while (!inBounds(r,c) || numbers[XYtolin(r-1,c)] == 0) {
+            ++c;
+            if (c >= sizer) {
+                c = 0;
+                ++r;
+                if (r >= sizer) {
+                    clearInterval(timer);
+                    return;
+                }
+            }
+        }
+    }, 50);
+}
+
 function draw() {
     background(220);
     strokeWeight(0.1);
@@ -55,6 +108,24 @@ function draw() {
     fill(0,0,0);
 }
 
+function hexagon(transX, transY, s) {
+    stroke(255);
+    //strokeWeight(5);
+    strokeWeight(0.01);
+    push();
+    translate(transX, transY);
+    scale(s);
+    beginShape();
+    vertex(-0.288, -0.5);
+    vertex(0.288, -0.5);
+    vertex(0.577, 0);
+    vertex(0.288, 0.5);
+    vertex(-0.288, 0.5);
+    vertex(-0.577, 0);
+    endShape(CLOSE); 
+    pop();
+}
+
 function newGame(){
     let sizer = size * 2 + 1;
     tileSize=400/sizer;
@@ -66,25 +137,6 @@ function newGame(){
         numbers.push(0);
     }
     shuffleNumbers();
-}
-
-function hexagon(transX, transY, s) {
-    stroke(255);
-    //strokeWeight(5);
-    strokeWeight(0.01);
-    push();
-    translate(transX, transY);
-    scale(s);
-    rotate(1.57);
-    beginShape();
-    vertex(-0.288, -0.5);
-    vertex(0.288, -0.5);
-    vertex(0.577, 0);
-    vertex(0.288, 0.5);
-    vertex(-0.288, 0.5);
-    vertex(-0.577, 0);
-    endShape(CLOSE); 
-    pop();
 }
 
 //draw tile with number num, position x, y, where x and y are 0..N-1 positions, not the exact coordinats
@@ -102,11 +154,11 @@ function drawTile(num, x, y){
     let exactX = zero + tileSize*relX;
     let exactY = zero + tileSize*y*0.87;
     
-    hexagon(exactX+tileSize/2,exactY+tileSize/2, tileSize * 0.97);
+    hexagon(exactY+tileSize/2,exactX+tileSize/2, tileSize * 0.97);
     strokeWeight(0.1);
-    textSize(tileSize/4);
+    textSize(1.25*tileSize/4);
     fill(255,255,255); 
-    text(num, exactX+tileSize/2, exactY+tileSize/2);
+    text(num, exactY+tileSize/2, exactX+tileSize/2);
 }
 
 function keyPressed(){
@@ -118,13 +170,21 @@ function keyPressed(){
         newGame();
     }
     
+    if (key == 's') {
+        dumbSolve();
+    }
+    
+    if (key == 'q') {
+        doTestDumbSolves();
+    }
+    
     if (key == "ArrowLeft" && mod > 2)
     {
         mod--;
         newGame();
     }
     
-    if (key == "ArrowRight" && mod < 9)
+    if (key == "ArrowRight" && mod < 99)
     {
         mod++;
         newGame();
@@ -140,8 +200,8 @@ function checkClick(){
     let sizer = 2*size + 1;
     if(inRect(mouseX, mouseY, zero, zero, tileSize*sizer, tileSize*sizer)){
         //in board
-        let y = int(floor((mouseY-zero)/(tileSize*0.87)));
-        let x = int(floor((mouseX-zero)/tileSize + (size-y)*0.5));
+        let y = int(floor((mouseX-zero)/(tileSize*0.87)));
+        let x = int(floor((mouseY-zero)/tileSize + (size-y)*0.5));
         if (!checkBounds(x,y))
             return;
         doSwap(x, y);
