@@ -63,7 +63,7 @@ function newGame(){
     for (let i = 0; i<size*size;i++){
         numbers.push(i);
     }
-    shuffleNumbers();
+    //shuffleNumbers();
 }
 
 //draw tile with number num, position x, y, where x and y are 0..N-1 positions, not the exact coordinats
@@ -109,11 +109,11 @@ function checkClick(){
 
 function doSwap(x, y){
     let n = size - 1;
-    if (x < n && y < n) {
+    if (x < size && y < size) {
         let xy = XYtolin(x, y);
-        let x1y = XYtolin(x+1, y);
-        let xy1 = XYtolin(x, y+1);
-        let x1y1 = XYtolin(x+1, y+1);
+        let x1y = XYtolin((x+1)%size, y);
+        let xy1 = XYtolin(x, (y+1)%size);
+        let x1y1 = XYtolin((x+1)%size, (y+1)%size);
         let tmp = numbers[xy];
         numbers[xy] = numbers[xy1];
         numbers[xy1] = numbers[x1y1];
