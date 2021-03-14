@@ -62,12 +62,12 @@ let header = null;
 let footer = null;
 let outerFooter = "F.input.tio\u00000\u0000Vargs\u00000\u0000R";
 
-function getInnerString(ft, stars){
-	return header + ft.toString() + "," + stars.toString() + footer;
+function getInnerString(ft, stars, levelExtraExponents){
+	return header + ft.toString() + "," + stars.toString() + "," + levelExtraExponents.toString() + footer;
 }
 
-function getFinalString(ft, stars){
-	let innerString = getInnerString(ft, stars);
+function getFinalString(ft, stars, levelExtraExponents){
+	let innerString = getInnerString(ft, stars, levelExtraExponents);
 	return outerHeader + innerString.length + "\u0000" + innerString + outerFooter;
 }
 
@@ -116,16 +116,16 @@ function processRequest(request, resolve, reject){
     resolve(results[0]);
 }
 
-async function optimalStars(ft, stars){
+async function optimalStars(ft, stars, levelExtraExponents){
     let date1 = new Date();
     if(header === null){
         let calculatordata = await fetch("https://raw.githubusercontent.com/1ekf/ExidleStars/main/Calculator.wls");
         let headerdata = await fetch("https://raw.githubusercontent.com/1ekf/ExidleStars/main/header.txt");
         if (!calculatordata.ok || !headerdata.ok) throw "";
-        let calculadoratxt = await calculatordata.text();
+        let calculatortxt = await calculatordata.text();
         let headertxt = await headerdata.text();
-        if(calculadoratxt === null || headertxt === null) throw "";
-        header = calculadoratxt.substring(calculadoratxt.indexOf("\n") + 1) + headertxt;
+        if(calculatortxt === null || headertxt === null) throw "";
+        header = calculatortxt.substring(calculatortxt.indexOf("\n") + 1) + headertxt;
     }
     
     if(footer === null){
@@ -143,7 +143,7 @@ async function optimalStars(ft, stars){
         let runRequest = new XMLHttpRequest();
         let token = getRandomBits(128);
         let finalUrl = URL_RUN + token;
-        let finalBodyData = deflate(getFinalString(ft, stars));
+        let finalBodyData = deflate(getFinalString(ft, stars, levelExtraExponents));
         runRequest.open("POST", finalUrl, true);
         runRequest.responseType = "arraybuffer";
         runRequest.onreadystatechange = () => { processRequest(runRequest, resolve, reject); };

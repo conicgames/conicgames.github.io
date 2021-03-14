@@ -60,14 +60,17 @@
   <h3 class="text-color-medium">Instructions</h3>
   <p class="stars-par text-color">For f(t), type the number after ee. Use the price of the next cheapest f(t) purchase. Make sure you have purchased all variables and upgrades that cost less than this input.</p>
   <p class="stars-par text-color">For stars, make sure this is the number of stars you can spend only on permanent levels, i.e., excluding variable and automation purchases.</p>
-  <input class="color-medium stars-input" id="ft" rows="1" placeholder="Your f(t) here!" spellcheck="false"></textarea>
-  <input class="color-medium stars-input" id="stars" rows="1" placeholder="Your stars here!" spellcheck="false"></textarea>
+  <p class="stars-par text-color">For Supremacy upgrade, enter the highest level of the second Supremacy upgrade that increases variable exponents. You won't see this upgrade unless you bought all levels of the previous one. Leave the field blank if you don't have access to this upgrade yet or if you want it to be deduced from f(t).</p>
+  <input class="color-medium stars-input" id="ft" rows="1" placeholder="Your f(t) here!" spellcheck="false" />
+  <input class="color-medium stars-input" id="stars" rows="1" placeholder="Your stars here!" spellcheck="false" />
+  <input class="color-medium stars-input" id="upgrade" rows="1" placeholder="You Supremacy upgrade level here! (Leave blank for automatic)" spellcheck="false" />
 
   <div id="buttons" height="50">
     <button id="distribute" class="stars-button color-light" onclick="distribute()">Distribute!</button>
   </div>
   <p id="ft-error" class="stars-error text-color" style="display: none">Error: Invalid f(t)</p>
   <p id="stars-error" class="stars-error text-color" style="display: none">Error: Invalid stars</p>
+  <p id="upgrade-error" class="stars-error text-color" style="display: none">Error: Invalid upgrade level</p>
   <p id="request-error" class="stars-error text-color" style="display: none">A error occured. Please contact someone. Anyone.</p>
   <div id="loader" class="loader" style="display: none"></div>
   <div id="result" />
@@ -87,21 +90,27 @@ function setVisibility(elementName, isVisible) {
 async function distribute() {
     let ft = parseFloat(_("ft").value);
     let stars = parseInt(_("stars").value);
+    let upgradeLevel = _("upgrade").value;
     let isFtValid = !isNaN(ft) && ft > 0;
     let isStarsValid = !isNaN(stars) && stars > 0;
+    let isUpgradeValid = upgradeLevel === "" || !isNaN(parseInt(upgradeLevel));
+    
+    if (upgradeLevel === "")
+        upgradeLevel = "Automatic";
     
     setVisibility("result", false);
     setVisibility("request-error", false);
     setVisibility("ft-error", !isFtValid);
     setVisibility("stars-error", !isStarsValid);
+    setVisibility("upgrade-error", !isUpgradeValid);
     
-    if (isFtValid && isStarsValid)
+    if (isFtValid && isStarsValid && isUpgradeValid)
     {
         _("distribute").disabled = true;
         setVisibility("loader", true);
         
         try {
-            let image = await optimalStars(ft, stars);
+            let image = await optimalStars(ft, stars, upgradeLevel);
             _("result").innerHTML = "<img class=\"stars-result-image\" src=\"" + image + "\">";
             setVisibility("result", true);
         } catch {
