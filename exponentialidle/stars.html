@@ -89,7 +89,7 @@ function setVisibility(elementName, isVisible) {
 
 async function distribute() {
     let ft = parseFloat(_("ft").value);
-    let stars = parseInt(_("stars").value);
+    let stars = parseFloat(_("stars").value);
     let upgradeLevel = _("upgrade").value;
     let isFtValid = !isNaN(ft) && ft > 0;
     let isStarsValid = !isNaN(stars) && stars > 0;
