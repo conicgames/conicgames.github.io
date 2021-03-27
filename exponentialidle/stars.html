@@ -17,27 +17,28 @@
     <meta name="theme-color" content="#ffffff">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/1.0.4/pako.min.js"></script>
-    <script src="./js/connector.js"></script>
+    <script src="./js/stars.js"></script>
 </head>
 
 <body>
 <div class="w3-top">
   <div class="w3-bar color-medium w3-card">
-    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="toggleMenu()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <img class="w3-bar-item" height="46" alt='' src='assets/images/logo.png'/>
-    <a href="index.html#" class="w3-bar-item w3-button w3-padding-large text-bold">Exponential Idle</a>
-    <a href="index.html#screenshots" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Screenshots</a>
-    <a href="index.html#download" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Download</a>
-    <a href="whatsnew.html#" class="w3-bar-item w3-button w3-padding-large w3-hide-small">What's New</a>
-    <a href="privacypolicy.html#" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Privacy Policy</a>
-    <div class="w3-dropdown-hover" style="outline: none;">
-        <button class="w3-button w3-padding-large w3-hide-small" style="outline: none;">Tools</button>
-        <div class="w3-dropdown-content w3-bar-block w3-card-4 color-medium">
-            <a href="bluestacks.html#" class="w3-bar-item w3-button">BlueStacks</a>
-            <a href="stars.html" class="w3-bar-item w3-button">Optimal Stars</a>
-        </div>
+  <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="toggleMenu()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+  <img class="w3-bar-item" height="46" alt='' src='assets/images/logo.png'/>
+  <a href="index.html#" class="w3-bar-item w3-button w3-padding-large text-bold">Exponential Idle</a>
+  <a href="index.html#screenshots" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Screenshots</a>
+  <a href="index.html#download" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Download</a>
+  <a href="whatsnew.html#" class="w3-bar-item w3-button w3-padding-large w3-hide-small">What's New</a>
+  <a href="privacypolicy.html#" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Privacy Policy</a>
+  <div class="w3-dropdown-hover" style="outline: none;">
+    <button class="w3-button w3-padding-large w3-hide-small" style="outline: none;">Tools</button>
+    <div class="w3-dropdown-content w3-bar-block w3-card-4 color-medium">
+      <a href="bluestacks.html#" class="w3-bar-item w3-button">BlueStacks</a>
+      <a href="stars.html" class="w3-bar-item w3-button">Star Optimizer</a>
+      <a href="students.html" class="w3-bar-item w3-button">Student Optimizer</a>
     </div>
-    <a href="index.html#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Contact</a>
+  </div>
+  <a href="index.html#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Contact</a>
   </div>
 </div>
 
@@ -48,33 +49,33 @@
   <a href="whatsnew.html#" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">What's New</a>
   <a href="privacypolicy.html#" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">Privacy Policy</a>
   <a href="bluestacks.html#" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">BlueStacks</a>
-  <a href="stars.html" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">Optimal Stars</a>
+  <a href="stars.html" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">Star Optimizer</a>
+  <a href="students.html" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">Student Optimizer</a>
   <a href="index.html#contact" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">Contact</a>
 </div>
 
 <div class="w3-content" style="max-width:2000px;margin-top:46px">
-<div class="w3-container w3-content w3-center w3-padding-16" style="max-width:800px">
-
-  <h1 class="text-color text-bold">Optimal Stars Calculator</h1>
-  <h3 class="text-color-light text-bold">By Eaux Tacous#1021</h3>
-  <h3 class="text-color-medium">Instructions</h3>
-  <p class="stars-par text-color">For f(t), type the number after ee of your "Lifetime f(t)" (see Statistics). Use the price of the next cheapest f(t) purchase. Make sure you have purchased all variables and upgrades that cost less than this input.</p>
-  <p class="stars-par text-color">For stars, make sure this is the number of stars you can spend only on permanent levels, i.e., excluding variable and automation purchases.</p>
-  <p class="stars-par text-color">For Supremacy upgrade, enter the highest level of the third Supremacy upgrade (the one that initially costs 1e110ψ). You won't see this upgrade unless you bought all levels of the "y exponent" upgrade. Leave the field blank if you don't have access to this upgrade yet or if you want it to be deduced from f(t).</p>
-  <input class="color-medium stars-input" id="ft" rows="1" placeholder="Your f(t) here!" spellcheck="false" />
-  <input class="color-medium stars-input" id="stars" rows="1" placeholder="Your stars here!" spellcheck="false" />
-  <input class="color-medium stars-input" id="upgrade" rows="1" placeholder="Your Supremacy upgrade level here! (Leave blank for automatic)" spellcheck="false" />
-
-  <div id="buttons" height="50">
+  <div class="w3-container w3-content w3-center w3-padding-16" style="max-width:800px">
+    <h1 class="text-color text-bold">Optimal Stars Calculator</h1>
+    <h3 class="text-color-light text-bold">By Eaux Tacous#1021</h3>
+    <h3 class="text-color-medium">Instructions</h3>
+    <p class="stars-par text-color">For f(t), type the number after ee of your "Lifetime f(t)" (see Statistics). Use the price of the next cheapest f(t) purchase. Make sure you have purchased all variables and upgrades that cost less than this input.</p>
+    <p class="stars-par text-color">For stars, make sure this is the number of stars you can spend only on permanent levels, i.e., excluding variable and automation purchases.</p>
+    <p class="stars-par text-color">For Supremacy upgrade, enter the highest level of the third Supremacy upgrade (the one that initially costs 1e110ψ). You won't see this upgrade unless you bought all levels of the "y exponent" upgrade. Leave the field blank if you don't have access to this upgrade yet or if you want it to be deduced from f(t).</p>
+    <input class="color-medium stars-input" id="ft" rows="1" placeholder="Your f(t) here!" spellcheck="false" />
+    <input class="color-medium stars-input" id="stars" rows="1" placeholder="Your stars here!" spellcheck="false" />
+    <input class="color-medium stars-input" id="upgrade" rows="1" placeholder="Your Supremacy upgrade level here! (Leave blank for automatic)" spellcheck="false" />
+    
+    <div id="buttons" height="50">
     <button id="distribute" class="stars-button color-light" onclick="distribute()">Distribute!</button>
+    </div>
+    <p id="ft-error" class="stars-error text-color" style="display: none">Error: Invalid f(t)</p>
+    <p id="stars-error" class="stars-error text-color" style="display: none">Error: Invalid stars</p>
+    <p id="upgrade-error" class="stars-error text-color" style="display: none">Error: Invalid upgrade level</p>
+    <p id="request-error" class="stars-error text-color" style="display: none">A error occured. Please contact someone. Anyone.</p>
+    <div id="loader" class="loader" style="display: none"></div>
+    <div id="result" />
   </div>
-  <p id="ft-error" class="stars-error text-color" style="display: none">Error: Invalid f(t)</p>
-  <p id="stars-error" class="stars-error text-color" style="display: none">Error: Invalid stars</p>
-  <p id="upgrade-error" class="stars-error text-color" style="display: none">Error: Invalid upgrade level</p>
-  <p id="request-error" class="stars-error text-color" style="display: none">A error occured. Please contact someone. Anyone.</p>
-  <div id="loader" class="loader" style="display: none"></div>
-  <div id="result" />
-</div>
 </div>
 
 <script src='js/script.js'></script>

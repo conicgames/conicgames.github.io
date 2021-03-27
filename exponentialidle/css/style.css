@@ -14,7 +14,7 @@ html, body {height: 100%}
 .whatsnew-par {text-align: left; padding-left: 1.5%; text-indent: -1.5%; margin: 0;}
 .privacy-par {text-align: left;}
 .privacy-bullet {text-align: left;}
-.bluestacks-par, .stars-par {text-align: left;}
+.bluestacks-par, .stars-par, .students-par {text-align: left;}
 .bluestacks-textarea, .stars-input {display: block; margin: auto; border: 1px solid #444; width: 100%; resize: none; margin-bottom: 2%; padding-left: 5px; outline: none;}
 .bluestacks-buttons {display: block; margin: auto; width: 100%;}
 .bluestacks-button, .stars-button {
@@ -30,18 +30,22 @@ html, body {height: 100%}
   cursor: pointer;
   outline: none;
 }
-.stars-button:disabled {
+.stars-button:disabled, .students-button:disabled {
     color: #777;
     background-color: #282828;
 }
-.stars-button:hover:enabled {
+.stars-button:hover:enabled, .students-button:hover:enabled {
     background-color: #383838;
 }
-.stars-input:hover {
+.stars-input:hover, .students-input:hover {
     background-color: #383838;
 }
-.stars-error {text-align: center;} 
+.stars-error, .students-error {text-align: center;} 
 .stars-result-image {width: 100%; margin-top: 10px;}
+
+.students-cb-container {text-align: center;}
+.students-cb-div {display: inline-block; text-align: center; margin: auto;}
+
 .ios {content:"iOS Only"}
 .loader {
   border: 8px solid #444; /* Light grey */

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exponential Idle</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/ico" href="assets/favicon/favicon.ico">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/1.0.4/pako.min.js"></script>
+    <script src="./js/students.js"></script>
+</head>
+
+<body>
+<div class="w3-top">
+  <div class="w3-bar color-medium w3-card">
+  <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="toggleMenu()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+  <img class="w3-bar-item" height="46" alt='' src='assets/images/logo.png'/>
+  <a href="index.html#" class="w3-bar-item w3-button w3-padding-large text-bold">Exponential Idle</a>
+  <a href="index.html#screenshots" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Screenshots</a>
+  <a href="index.html#download" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Download</a>
+  <a href="whatsnew.html#" class="w3-bar-item w3-button w3-padding-large w3-hide-small">What's New</a>
+  <a href="privacypolicy.html#" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Privacy Policy</a>
+  <div class="w3-dropdown-hover" style="outline: none;">
+    <button class="w3-button w3-padding-large w3-hide-small" style="outline: none;">Tools</button>
+    <div class="w3-dropdown-content w3-bar-block w3-card-4 color-medium">
+      <a href="bluestacks.html#" class="w3-bar-item w3-button">BlueStacks</a>
+      <a href="stars.html" class="w3-bar-item w3-button">Star Optimizer</a>
+      <a href="students.html" class="w3-bar-item w3-button">Student Optimizer</a>
+    </div>
+  </div>
+  <a href="index.html#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Contact</a>
+  </div>
+</div>
+
+<!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+<div id="navDemo" class="w3-bar-block color-light w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+  <a href="index.html#screenshots" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">Screenshots</a>
+  <a href="index.html#download" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">Download</a>
+  <a href="whatsnew.html#" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">What's New</a>
+  <a href="privacypolicy.html#" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">Privacy Policy</a>
+  <a href="bluestacks.html#" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">BlueStacks</a>
+  <a href="stars.html" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">Star Optimizer</a>
+  <a href="students.html" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">Student Optimizer</a>
+  <a href="index.html#contact" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">Contact</a>
+</div>
+  
+<div class="w3-content" style="max-width:2000px;margin-top:46px">
+  <div class="w3-container w3-content w3-center w3-padding-16" style="max-width:800px">
+    <h1 class="text-color text-bold">Student Optimizer</h1>
+    <h3 class="text-color-light text-bold">
+      By <a href="https://github.com/Niedzielan" target="_blank">Niedzielan</a>, 
+      <a href="https://github.com/SashLilac" target="_blank">Milla</a>,
+      and <a href="https://github.com/AfuroZamurai" target="_blank">AfuroZamurai</a>
+    </h3>
+    <noscript>
+      <h3>Please enable JavaScript and reload the page.</h3>
+    </noscript>
+      <h3 class="text-color-medium">Instructions</h3>
+    <p class="students-par text-color">
+      This page will determine the most optimal distribution for your sigma /
+      students given your current number of students, number of stars, t, and f(t).
+    </p>
+    <p class="students-par text-color">
+      The values entered should come from the exact same point in time or as close
+      together as you can get them all.
+    </p>
+    <p class="students-par text-color">
+      For your current students, enter the number of students that have not been
+      allocated to theories. For your t, enter the number in the top left corner.
+      For your f(t), input the number after the ee in the top-left corner.
+      For your current stars, go into the "Statistics" menu and enter the number
+      under "Total Stars".
+    </p>
+    <p class="students-par text-color">
+      Ad-bonus should be checked if you have the ad-bonus active. Acceleration
+      should <b><i>only</i></b> be checked if you're planning to use the button
+      regularly, not if you only use it once in a while. The acceleration
+      multiplier will default to about 2.85x, but can be changed to your liking.
+      Ignore Theories should be left alone unless you know what you're doing.
+    </p>
+    <input class="color-medium stars-input" rows="1" id="students" placeholder="Your students here" spellcheck="false">
+    <input class="color-medium stars-input" rows="1" id="t" placeholder="Your t here" spellcheck="false">
+    <input class="color-medium stars-input" rows="1" id="ft" placeholder="Your f(t) here" spellcheck="false">
+    <input class="color-medium stars-input" rows="1" id="stars" placeholder="Your stars here" spellcheck="false">
+    <input class="color-medium stars-input" rows="1" id="theories" placeholder="Theories unlocked (default 0)" spellcheck="false">
+    <input class="color-medium stars-input" rows="1" id="theoryboosts" placeholder="Theory boost upgrades bought (default 0)" spellcheck="false">
+    <input class="color-medium stars-input" rows="1" id="accelmult" placeholder="Your acceleration multiplier here (optional)" spellcheck="false">
+    <div class="students-cb-container">
+      <div class="students-cb-div">
+        <label class="text-color" for="adbonus">Ad Bonus</label>
+        <input type="checkbox" id="adbonus">
+      </div>
+      <div class="students-cb-div">
+        <label class="text-color" for="acceleration">Acceleration</label>
+        <input type="checkbox" id="acceleration">
+      </div>
+      <div class="students-cb-div">
+        <label class="text-color" for="ignoretheories">Ignore Theories</label>
+        <input type="checkbox" id="ignoretheories"><br>
+      </div>
+    </div>
+    <div id="buttons" height="50">
+      <button id="calculate" class="stars-button color-light" onclick="calculate()">Calculate!</button>
+    </div>
+    <p id="students-error" class="students-error text-color" style="display: none">Error: Invalid Students</p>
+    <p id="t-error" class="students-error text-color" style="display: none">Error: Invalid 't'</p>
+    <p id="ft-error" class="students-error text-color" style="display: none">Error: Invalid f(t)</p>
+    <p id="stars-error" class="students-error text-color" style="display: none">Error: Invalid Stars</p>
+    <p id="theories-unlocked-error" class="students-error text-color" style="display: none">Error: Invalid 'Theories Unlocked'</p>
+    <p id="theory-boosts-error" class="students-error text-color" style="display: none">Error: Invalid 'Theories Boost Upgrades Bought'</p>
+    <p id="acceleration-multiplier-error" class="students-error text-color" style="display: none">Error: Invalid Acceleration Multiplier</p>
+    <p id="output" class="text-color"></p>
+  </div>
+  </div>
+  
+<script>
+function _(elementName) {
+    return document.getElementById(elementName);
+}
+
+function setVisibility(elementName, isVisible) {
+    _(elementName).style.display = isVisible ? "block" : "none";
+}
+
+async function calculate() {
+    let students = parseInt(_("students").value);
+    let t = parseFloat(_("t").value);
+    let ft = parseFloat(_("ft").value);
+    let stars = parseFloat(_("stars").value);
+    let theoriesUnlockedText = _("theories").value;
+    let theoriesUnlocked = parseInt(theoriesUnlockedText);
+    let theoryBoostsText = _("theoryboosts").value;
+    let theoryBoosts = parseInt(theoryBoostsText);
+    let accelerationMultiplierText = _("accelmult").value;
+    let accelerationMultiplier = parseFloat(accelerationMultiplierText);
+    let areStudentsValid = !isNaN(students) && students >= 0;
+    let isTValid = !isNaN(t) && t >= 0;
+    let isFtValid = !isNaN(ft) && ft >= 0;
+    let areStarsValid = !isNaN(stars) && stars >= 0;
+    let areTheoriesUnlockedValid = theoriesUnlockedText === "" || !isNaN(theoriesUnlocked) && theoriesUnlocked >= 0 && theoriesUnlocked <= 9;
+    let areTheoryBoostsValid = theoryBoostsText === "" || !isNaN(theoryBoosts) && theoryBoosts >= 0 && theoryBoosts <= 3;
+    let isAccelerationMultiplierValid = accelerationMultiplierText === "" || !isNaN(accelerationMultiplier) && accelerationMultiplier >= 0 && accelerationMultiplier <= 3.18;
+    
+    setVisibility("output", false);
+    setVisibility("students-error", !areStudentsValid);
+    setVisibility("t-error", !isTValid);
+    setVisibility("ft-error", !isFtValid);
+    setVisibility("stars-error", !areStarsValid);
+    setVisibility("theories-unlocked-error", !areTheoriesUnlockedValid);
+    setVisibility("theory-boosts-error", !areTheoryBoostsValid);
+    setVisibility("acceleration-multiplier-error", !isAccelerationMultiplierValid);
+    
+    if (areStudentsValid && isTValid && isFtValid && areStarsValid && areTheoriesUnlockedValid && areTheoryBoostsValid && isAccelerationMultiplierValid)
+    {
+        optimize();
+        setVisibility("output", true);
+    }
+}
+
+function setOnEnter(elementName, action) {
+    _(elementName).addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            action();
+        }
+    });
+}
+
+window.onload = function() {
+    setOnEnter("students", () => _("t").focus());
+    setOnEnter("t", () => { _("t").blur(); _("ft").focus();});
+    setOnEnter("ft", () => { _("ft").blur(); _("stars").focus();});
+    setOnEnter("stars", () => { _("stars").blur(); _("theories").focus();});
+    setOnEnter("theories", () => { _("theories").blur(); _("theoryboosts").focus();});
+    setOnEnter("theoryboosts", () => { _("theoryboosts").blur(); _("accelmult").focus();});
+    setOnEnter("accelmult", () => { _("accelmult").blur(); _("calculate").click();});
+}
+</script>
+</body>
+
+</html>
