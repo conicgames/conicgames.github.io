@@ -17,7 +17,6 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/1.0.4/pako.min.js"></script>
     <script src="./js/students.js"></script>
 </head>
 
@@ -68,16 +67,16 @@
     </noscript>
       <h3 class="text-color-medium">Instructions</h3>
     <p class="students-par text-color">
-      This page will determine the most optimal distribution for your sigma /
-      students given your current number of students, number of stars, t, and f(t).
+      This page will determine the optimal distribution of students (σ) given your 
+	  current number of students, number of stars, t, and f(t).
     </p>
     <p class="students-par text-color">
       The values entered should come from the exact same point in time or as close
       together as you can get them all.
     </p>
     <p class="students-par text-color">
-      For your current students, enter the number of students that have not been
-      allocated to theories. For your t, enter the number in the top left corner.
+      For your current students, enter the number of students that can be allocated
+      to phi upgrades. For your t, enter the number in the top left corner.
       For your f(t), input the number after the ee in the top-left corner.
       For your current stars, go into the "Statistics" menu and enter the number
       under "Total Stars".
@@ -87,14 +86,13 @@
       should <b><i>only</i></b> be checked if you're planning to use the button
       regularly, not if you only use it once in a while. The acceleration
       multiplier will default to about 2.85x, but can be changed to your liking.
-      Ignore Theories should be left alone unless you know what you're doing.
     </p>
     <input class="color-medium stars-input" rows="1" id="students" placeholder="Your students here" spellcheck="false">
     <input class="color-medium stars-input" rows="1" id="t" placeholder="Your t here" spellcheck="false">
     <input class="color-medium stars-input" rows="1" id="ft" placeholder="Your f(t) here" spellcheck="false">
     <input class="color-medium stars-input" rows="1" id="stars" placeholder="Your stars here" spellcheck="false">
-    <input class="color-medium stars-input" rows="1" id="theories" placeholder="Theories unlocked (default 0)" spellcheck="false">
-    <input class="color-medium stars-input" rows="1" id="theoryboosts" placeholder="Theory boost upgrades bought (default 0)" spellcheck="false">
+    <input class="color-medium stars-input" style="display:none" rows="1" id="theories" placeholder="Theories unlocked (default 0)" spellcheck="false">
+    <input class="color-medium stars-input" style="display:none" rows="1" id="theoryboosts" placeholder="Theory boost upgrades bought (default 0)" spellcheck="false">
     <input class="color-medium stars-input" rows="1" id="accelmult" placeholder="Your acceleration multiplier here (optional)" spellcheck="false">
     <div class="students-cb-container">
       <div class="students-cb-div">
@@ -105,7 +103,7 @@
         <label class="text-color" for="acceleration">Acceleration</label>
         <input type="checkbox" id="acceleration">
       </div>
-      <div class="students-cb-div">
+      <div class="students-cb-div" style="display:none">
         <label class="text-color" for="ignoretheories">Ignore Theories</label>
         <input type="checkbox" id="ignoretheories"><br>
       </div>
@@ -117,8 +115,6 @@
     <p id="t-error" class="students-error text-color" style="display: none">Error: Invalid 't'</p>
     <p id="ft-error" class="students-error text-color" style="display: none">Error: Invalid f(t)</p>
     <p id="stars-error" class="students-error text-color" style="display: none">Error: Invalid Stars</p>
-    <p id="theories-unlocked-error" class="students-error text-color" style="display: none">Error: Invalid 'Theories Unlocked'</p>
-    <p id="theory-boosts-error" class="students-error text-color" style="display: none">Error: Invalid 'Theories Boost Upgrades Bought'</p>
     <p id="acceleration-multiplier-error" class="students-error text-color" style="display: none">Error: Invalid Acceleration Multiplier</p>
     <p id="output" class="text-color"></p>
   </div>
@@ -138,18 +134,12 @@ async function calculate() {
     let t = parseFloat(_("t").value);
     let ft = parseFloat(_("ft").value);
     let stars = parseFloat(_("stars").value);
-    let theoriesUnlockedText = _("theories").value;
-    let theoriesUnlocked = parseInt(theoriesUnlockedText);
-    let theoryBoostsText = _("theoryboosts").value;
-    let theoryBoosts = parseInt(theoryBoostsText);
     let accelerationMultiplierText = _("accelmult").value;
     let accelerationMultiplier = parseFloat(accelerationMultiplierText);
     let areStudentsValid = !isNaN(students) && students >= 0;
     let isTValid = !isNaN(t) && t >= 0;
     let isFtValid = !isNaN(ft) && ft >= 0;
     let areStarsValid = !isNaN(stars) && stars >= 0;
-    let areTheoriesUnlockedValid = theoriesUnlockedText === "" || !isNaN(theoriesUnlocked) && theoriesUnlocked >= 0 && theoriesUnlocked <= 9;
-    let areTheoryBoostsValid = theoryBoostsText === "" || !isNaN(theoryBoosts) && theoryBoosts >= 0 && theoryBoosts <= 3;
     let isAccelerationMultiplierValid = accelerationMultiplierText === "" || !isNaN(accelerationMultiplier) && accelerationMultiplier >= 0 && accelerationMultiplier <= 3.18;
     
     setVisibility("output", false);
@@ -157,11 +147,9 @@ async function calculate() {
     setVisibility("t-error", !isTValid);
     setVisibility("ft-error", !isFtValid);
     setVisibility("stars-error", !areStarsValid);
-    setVisibility("theories-unlocked-error", !areTheoriesUnlockedValid);
-    setVisibility("theory-boosts-error", !areTheoryBoostsValid);
     setVisibility("acceleration-multiplier-error", !isAccelerationMultiplierValid);
     
-    if (areStudentsValid && isTValid && isFtValid && areStarsValid && areTheoriesUnlockedValid && areTheoryBoostsValid && isAccelerationMultiplierValid)
+    if (areStudentsValid && isTValid && isFtValid && areStarsValid && isAccelerationMultiplierValid)
     {
         optimize();
         setVisibility("output", true);
@@ -182,8 +170,6 @@ window.onload = function() {
     setOnEnter("t", () => { _("t").blur(); _("ft").focus();});
     setOnEnter("ft", () => { _("ft").blur(); _("stars").focus();});
     setOnEnter("stars", () => { _("stars").blur(); _("theories").focus();});
-    setOnEnter("theories", () => { _("theories").blur(); _("theoryboosts").focus();});
-    setOnEnter("theoryboosts", () => { _("theoryboosts").blur(); _("accelmult").focus();});
     setOnEnter("accelmult", () => { _("accelmult").blur(); _("calculate").click();});
 }
 </script>
