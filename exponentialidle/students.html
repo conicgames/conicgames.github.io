@@ -95,13 +95,19 @@
     <input class="color-medium stars-input" style="display:none" rows="1" id="theoryboosts" placeholder="Theory boost upgrades bought (default 0)" spellcheck="false">
     <input class="color-medium stars-input" rows="1" id="accelmult" placeholder="Your acceleration multiplier here (optional)" spellcheck="false">
     <div class="students-cb-container">
-      <div class="students-cb-div">
-        <label class="text-color" for="adbonus">Ad Bonus</label>
-        <input type="checkbox" id="adbonus">
+      <div style="display:inline-block">
+	    <label class="text-color noselect" for="adbonus">Ad Bonus</label>
+		<label class="switch">
+		  <input id="adbonus" type="checkbox" checked>
+		  <span class="slider round"></span>
+		</label>
       </div>
-      <div class="students-cb-div">
-        <label class="text-color" for="acceleration">Acceleration</label>
-        <input type="checkbox" id="acceleration">
+      <div style="margin-left:10px; display:inline-block">
+	    <label class="text-color noselect" for="acceleration">Acceleration</label>
+		<label class="switch">
+		  <input id="acceleration" type="checkbox" checked>
+		  <span class="slider round"></span>
+		</label>
       </div>
       <div class="students-cb-div" style="display:none">
         <label class="text-color" for="ignoretheories">Ignore Theories</label>
