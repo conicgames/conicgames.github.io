@@ -27,7 +27,7 @@ function optimize() {
     var dtSpeedUpgrades = ft / (15.0 * Math.log10(2))
     var dtSpeed = (dtSpeedUpgrades + 0.1) / 10
     var dtLevels = ft / Math.log10(4)
-    var dt = dtSpeed * dtLevels
+    var dt = Math.max(1, dtSpeed * dtLevels);
 
     if (adBonus) { dt *= 1.5 }
     if (acceleration) { dt *= accelerationBonus }
