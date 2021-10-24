@@ -104,12 +104,18 @@ function swapNumbers(x1, y1, x2, y2){
 }
 
 function checkClick(){
+    let x = int(floor((mouseX-zero)/tileSize));
+    let y = int(floor((mouseY-zero)/tileSize));
     if(inRect(mouseX, mouseY, zero, zero, tileSize*size, tileSize*size)){
         //in board
-        let x = int(floor((mouseX-zero)/tileSize));
-        let y = int(floor((mouseY-zero)/tileSize));
         doSwap(x, y);
     }
+	else if (inRect(mouseX, mouseY, zero, zero-tileSize*size, tileSize*size, tileSize*size)) {
+		doRotate(x,-1)
+	}
+	else if (inRect(mouseX, mouseY, zero, zero+tileSize*size, tileSize*size, tileSize*size)) {
+		doRotate(x,1)
+	}
 }
 
 function isEmpty(x, y) {
@@ -121,10 +127,25 @@ function doSwap(x, y){
 		swapNumbers(x, y, x-1, y)
 	else if (x < size - 1 && isEmpty(x+1,y))
 		swapNumbers(x, y, x+1, y)
-	else if (isEmpty(x, (y+size-1)%size))
-		swapNumbers(x, y, x, (y+size-1)%size)
-	else if (isEmpty(x, (y+1)%size))
-		swapNumbers(x, y, x, (y+1)%size)
+}
+
+function doRotate(x, dir) {
+	if (dir == -1) {	
+		let tmp = numbers[XYtolin(x,0)]
+		for (let i = 0 ; i < size - 1 ; ++i) {
+			numbers[XYtolin(x,i)] = numbers[XYtolin(x,(i+size+1)%size)]
+		}
+		numbers[XYtolin(x,size-1)] = tmp
+	}
+	else {
+		let tmp = numbers[XYtolin(x,size-1)]
+		for (let i = size-1 ; i > 0 ; --i) {
+			numbers[XYtolin(x,i)] = numbers[XYtolin(x,(i+size-1)%size)]
+		}
+		numbers[XYtolin(x,0)] = tmp
+	}
+	
+	
 }
 
 //return true if x,y in rect position rx ry size w*h
@@ -160,12 +181,12 @@ function shuffleNumbers() {
 			choices.push([x-1, y]);
 		if (x < size-1)
 			choices.push([x+1, y]);
-		choices.push([x, (y+size-1)%size])
-		choices.push([x, (y+1)%size])
 		let choice = choices[getRandomInt(0, choices.length)]
 		x = choice[0]
 		y = choice[1]
         doSwap(x, y);
+		doRotate(x,-1);
+		y = (y + size - 1)%size
     }
 }
 
