@@ -89,6 +89,7 @@
   }
   function loadLeaderboard() {
 	clearLeaderboard();
+	document.getElementById("signin-button").remove();
 	loadLeaderboardPage(null, 1, 1000);
   }
   function loadLeaderboardPage(pageToken, position, count) {
@@ -106,7 +107,6 @@
 		if (count > maxScoreCountPerRequest) {
 		  loadLeaderboardPage(responseObject.nextPageToken, position + maxScoreCountPerRequest, count - maxScoreCountPerRequest);
 		}
-		document.getElementById("signin-button").remove();
 	  }
 	}
 	xhr.send();
