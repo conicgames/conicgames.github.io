@@ -17,7 +17,7 @@ html, body {height: 100%}
 .bluestacks-par, .stars-par, .students-par {text-align: left;}
 .bluestacks-textarea, .stars-input {display: block; margin: auto; border: 1px solid #444; width: 100%; resize: none; margin-bottom: 2%; padding-left: 5px; outline: none;}
 .bluestacks-buttons {display: block; margin: auto; width: 100%;}
-.bluestacks-button, .stars-button {
+.bluestacks-button, .stars-button, .signin-button {
   display: block;
   width: 100%;
   margin: auto;
@@ -133,4 +133,9 @@ input:checked + .slider:before {
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
 }
