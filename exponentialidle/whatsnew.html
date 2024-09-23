@@ -56,6 +56,63 @@
 <div class="w3-container w3-content w3-center w3-padding-16" style="max-width:675px">
   <h1 class="text-color text-bold">What's New</h1>
 
+  <h3 class="text-color-medium">Version 1.4.33</h3>
+  <p class="whatsnew-par text-color">· Custom Theory SDK:</p>
+  <p class="whatsnew-par text-color">&nbsp;&nbsp;&nbsp;&nbsp;· Fixed: Properties of stateful UI components did not always reflect the displayed value.</p>
+  <p class="whatsnew-par text-color">&nbsp;&nbsp;&nbsp;&nbsp;· Fixed: It was possible to make recursive calls to a theory function and crash the game.</p>
+
+  <h3 class="text-color-medium">Version 1.4.32</h3>
+  <p class="whatsnew-par text-color">· Two new Custom Theories:</p>
+  <p class="whatsnew-par text-color">&nbsp;&nbsp;&nbsp;&nbsp;· Fractional Integration</p>
+  <p class="whatsnew-par text-color">&nbsp;&nbsp;&nbsp;&nbsp;· Fractal Patterns</p>
+  <p class="whatsnew-par text-color">· The τ (tau) contribution from official Custom Theories have quadrupled, e.g., if a CT was 1e100τ, it will now be 1e400τ.</p>
+  <p class="whatsnew-par text-color">· The τ (tau) limit has also been increased from 1e150 to 1e600.</p>
+  <p class="whatsnew-par text-color">&nbsp;&nbsp;&nbsp;&nbsp;· Note: You do not have to update your CTs to benefit from this increase but I still recommend to update them from the CT download window.</p>
+  <p class="whatsnew-par text-color">· Fixed: The theory automator CT could make the game UI freeze for a while during offline progress calculation.</p>
+  <p class="whatsnew-par text-color">· Fixed: Official Custom Theory indices were not properly assigned.</p>
+  <p class="whatsnew-par text-color">· Fixed: Formatting of absurdly high numbers in the save slot window. Please don't cheat but if you do, I got you covered (and also banned from the leaderboard).</p>
+  <p class="whatsnew-par text-color">· Custom Theory SDK:</p>
+  <p class="whatsnew-par text-color">&nbsp;&nbsp;&nbsp;&nbsp;· Fixed: Crash when providing specific LaTeX strings.</p>
+  <p class="whatsnew-par text-color">&nbsp;&nbsp;&nbsp;&nbsp;· Added the function 'getEquationUnderlay' to the theory skeleton.</p>
+  <p class="whatsnew-par text-color">&nbsp;&nbsp;&nbsp;&nbsp;· Added the property 'statementCount' to the 'Profilers' class.</p>
+  <p class="whatsnew-par text-color">&nbsp;&nbsp;&nbsp;&nbsp;· Added the constructor 'fromRgba' to the 'Color' class.</p>
+
+  <h3 class="text-color-medium">Version 1.4.31</h3>
+  <p class="whatsnew-par text-color">· Fixed: Custom Theories would sometimes generate an error when the game is closing.</p>
+  <p class="whatsnew-par text-color">· Fixed: Numerical values in the summary bar would sometimes wrap to the next line.</p>
+  <p class="whatsnew-par text-color">· Added two more save slots.</p>
+  
+  <h3 class="text-color-medium">Version 1.4.30</h3>
+  <p class="whatsnew-par text-color">· New language: Lithuanian!</p>
+  <p class="whatsnew-par text-color">· Fixed: Music could not be turned off on some devices.</p>
+  <p class="whatsnew-par text-color">· Fixed: The game was not always saved when closing the app.</p>
+  <p class="whatsnew-par text-color">· Custom Theories:</p>
+  <p class="whatsnew-par text-color">&nbsp;&nbsp;&nbsp;&nbsp;· Fixed: The theory list did not assign the correct symbol and other theories were not really sorted by name.</p>
+  <p class="whatsnew-par text-color">· Custom Theory API:</p>
+  <p class="whatsnew-par text-color">&nbsp;&nbsp;&nbsp;&nbsp;· Fixed: Sliders did not correctly handle 'minimum' and 'maximum' in the constructor.</p>
+  <p class="whatsnew-par text-color">&nbsp;&nbsp;&nbsp;&nbsp;· Fixed: CustomCost with 'max' buy amount did not work.</p>
+  <p class="whatsnew-par text-color">&nbsp;&nbsp;&nbsp;&nbsp;· Fixed: Milestones did not update when 'maxLevel' is modified.</p>
+  <p class="whatsnew-par text-color">· Added a grace period of 1 to 2 seconds (randomized) to the acceleration button.</p>
+  <p class="whatsnew-par text-color">· Slowed down the deceleration of the acceleration (I know... it sounds strange).</p>
+  <p class="whatsnew-par text-color">· Added a decimal to the mantissa of b, db, and μ when the exponent is over 10,000.</p>
+  <p class="whatsnew-par text-color">· Fixed some UI glitches.</p>
+  <p class="whatsnew-par text-color">· Fixed some exploits.</p>
+  <p class="whatsnew-par text-color">· Fixed a bad behavior with bulk purchases and auto-buyers, e.g., buy amount is x10 and max level is 8.</p>
+  
+  <h3 class="text-color-medium">Version 1.4.29</h3>
+  <p class="whatsnew-par text-color">· Custom Theories:</p>
+  <p class="whatsnew-par text-color">&nbsp;&nbsp;&nbsp;&nbsp;· Theories from the repository are now displayed first and sorted by release dates. Others are sorted by name.</p>
+  <p class="whatsnew-par text-color">&nbsp;&nbsp;&nbsp;&nbsp;· Updates to Euler's Formula and Convergents to Sqrt(2). Check the repository popup to update.</p>
+  <p class="whatsnew-par text-color">· Custom Theory API:</p>
+  <p class="whatsnew-par text-color">&nbsp;&nbsp;&nbsp;&nbsp;· Added 'Slider' UI control.</p>
+  <p class="whatsnew-par text-color">&nbsp;&nbsp;&nbsp;&nbsp;· Added the ability to reward minigame stars. Reward if official, log message if not.</p>
+  <p class="whatsnew-par text-color">&nbsp;&nbsp;&nbsp;&nbsp;· Simplified and optimized layout events.</p>
+  <p class="whatsnew-par text-color">&nbsp;&nbsp;&nbsp;&nbsp;· Fixed JS context within callbacks.</p>
+  <p class="whatsnew-par text-color">&nbsp;&nbsp;&nbsp;&nbsp;· Fixed 'game.isCalculatingOfflineProgress' when offline time is less than 2 minutes.</p>
+  <p class="whatsnew-par text-color">&nbsp;&nbsp;&nbsp;&nbsp;· Fixed crash with ExponentialCost when 'progress' is too large.</p>
+  <p class="whatsnew-par text-color">· Fixed: 'Reset All' did not reset the auto-buyer selection of theory upgrades.</p>
+  <p class="whatsnew-par text-color">· Minor UI fixes.</p>
+
   <h3 class="text-color-medium">Version 1.4.28</h3>
   <p class="whatsnew-par text-color">· New language: Serbian (Cyrillic)!</p>
   <p class="whatsnew-par text-color">· Two new Custom Theories:</p>
