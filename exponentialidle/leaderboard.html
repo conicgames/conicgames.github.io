@@ -93,7 +93,7 @@
 	loadLeaderboardPage(null, 1, 10000);
   }
   let errors = 0;
-  let maxErrors = 15;
+  let maxErrors = 25;
   function loadLeaderboardPage(pageToken, position, count) {
 	let xhr = new XMLHttpRequest();
 	let countParameter = '&maxResults=' + Math.min(maxScoreCountPerRequest, count);
