@@ -110,7 +110,7 @@
 		  loadLeaderboardPage(responseObject.nextPageToken, position + maxScoreCountPerRequest, count - maxScoreCountPerRequest);
 		}
 	  } else if (errors++ < maxErrors) {
-	    loadLeaderboardPage(responseObject.nextPageToken, position + maxScoreCountPerRequest, count - maxScoreCountPerRequest);
+	    loadLeaderboardPage(pageToken, position, count);
 	  }
 	}
 	xhr.send();
