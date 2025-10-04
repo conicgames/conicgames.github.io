@@ -92,6 +92,8 @@
 	document.getElementById("signin-button").remove();
 	loadLeaderboardPage(null, 1, 10000);
   }
+  let errors = 0;
+  let maxErrors = 5;
   function loadLeaderboardPage(pageToken, position, count) {
 	let xhr = new XMLHttpRequest();
 	let countParameter = '&maxResults=' + Math.min(maxScoreCountPerRequest, count);
@@ -107,6 +109,8 @@
 		if (count > maxScoreCountPerRequest) {
 		  loadLeaderboardPage(responseObject.nextPageToken, position + maxScoreCountPerRequest, count - maxScoreCountPerRequest);
 		}
+	  } else if (errors++ < maxErrors) {
+	    loadLeaderboardPage(responseObject.nextPageToken, position + maxScoreCountPerRequest, count - maxScoreCountPerRequest);
 	  }
 	}
 	xhr.send();
