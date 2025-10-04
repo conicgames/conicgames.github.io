@@ -109,7 +109,7 @@
 		if (count > maxScoreCountPerRequest) {
 		  loadLeaderboardPage(responseObject.nextPageToken, position + maxScoreCountPerRequest, count - maxScoreCountPerRequest);
 		}
-	  } else if (errors++ < maxErrors) {
+	  } else {
 		console.log(xhr.readyState);
 		console.log(xhr.status);
 	    //loadLeaderboardPage(pageToken, position, count);
