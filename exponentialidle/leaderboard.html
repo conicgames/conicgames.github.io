@@ -93,7 +93,7 @@
 	loadLeaderboardPage(null, 1, 10000);
   }
   let errors = 0;
-  let maxErrors = 5;
+  let maxErrors = 15;
   function loadLeaderboardPage(pageToken, position, count) {
 	let xhr = new XMLHttpRequest();
 	let countParameter = '&maxResults=' + Math.min(maxScoreCountPerRequest, count);
@@ -108,15 +108,13 @@
 		  responseObject = JSON.parse(xhr.response);
 		  addToLeaderboard(responseObject, position);
 		  if (count > maxScoreCountPerRequest) {
-		    setTimeout(() => {
-		      loadLeaderboardPage(responseObject.nextPageToken, position + maxScoreCountPerRequest, count - maxScoreCountPerRequest);
-            }, 100);
+		    loadLeaderboardPage(responseObject.nextPageToken, position + maxScoreCountPerRequest, count - maxScoreCountPerRequest);
 		  }
 	    } else if (xhr.status === 403 && errors++ < maxErrors){
 		  console.log("Rate limited");
 		  setTimeout(() => {
 	        loadLeaderboardPage(pageToken, position, count);
-          }, 10000);
+          }, 31000);
 	    }
 	  }
 	}
