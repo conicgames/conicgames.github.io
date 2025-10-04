@@ -103,16 +103,21 @@
 	xhr.open('GET', url);
 	xhr.setRequestHeader('Authorization', 'Bearer ' + access_token);
 	xhr.onreadystatechange = () => {
-	  if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-		responseObject = JSON.parse(xhr.response);
-		addToLeaderboard(responseObject, position);
-		if (count > maxScoreCountPerRequest) {
-		  loadLeaderboardPage(responseObject.nextPageToken, position + maxScoreCountPerRequest, count - maxScoreCountPerRequest);
-		}
-	  } else {
-		console.log(xhr.readyState);
-		console.log(xhr.status);
-	    //loadLeaderboardPage(pageToken, position, count);
+	  if (xhr.readyState === XMLHttpRequest.DONE) {
+	    if (xhr.status === 200) {
+		  responseObject = JSON.parse(xhr.response);
+		  addToLeaderboard(responseObject, position);
+		  if (count > maxScoreCountPerRequest) {
+		    setTimeout(() => {
+		      loadLeaderboardPage(responseObject.nextPageToken, position + maxScoreCountPerRequest, count - maxScoreCountPerRequest);
+            }, 100);
+		  }
+	    } else if (xhr.status === 403 && errors++ < maxErrors){
+		  console.log("Rate limited");
+		  setTimeout(() => {
+	        loadLeaderboardPage(pageToken, position, count);
+          }, 1000);
+	    }
 	  }
 	}
 	xhr.send();
